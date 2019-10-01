@@ -7,6 +7,7 @@ public class Convenio {
     private double valor;
 
     public Convenio() {
+
     }
 
     public Convenio(String id, String nome, String tipo, double valor) {
