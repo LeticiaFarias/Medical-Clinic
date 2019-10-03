@@ -5,15 +5,17 @@ public class Paciente {
     private String cpf;
     private String endereco;
     private String telefone;
+    private Convenio convenio;
 
     public Paciente() {
     }
 
-    public Paciente(String nome, String cpf, String endereco, String telefone) {
+    public Paciente(String nome, String cpf, String endereco, String telefone, Convenio convenio) {
         this.nome = nome;
         this.cpf = cpf;
         this.endereco = endereco;
         this.telefone = telefone;
+        this.convenio = convenio;
     }
 
     public String getNome() {
@@ -46,5 +48,13 @@ public class Paciente {
 
     public void setTelefone(String telefone) {
         this.telefone = telefone;
+    }
+
+    public Convenio getConvenio() {
+        return convenio;
+    }
+
+    public void setConvenio(Convenio convenio) {
+        this.convenio = convenio;
     }
 }
