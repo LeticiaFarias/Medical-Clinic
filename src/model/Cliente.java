@@ -1,21 +1,24 @@
 package model;
 
-public class Paciente {
+public class Cliente {
     private String nome;
     private String cpf;
+    private String email;
+    private String senha;
     private String endereco;
     private String telefone;
-    private Convenio convenio;
 
-    public Paciente() {
+    public Cliente() {
+
     }
 
-    public Paciente(String nome, String cpf, String endereco, String telefone, Convenio convenio) {
+    public Cliente(String nome, String cpf, String email, String senha, String endereco, String telefone) {
         this.nome = nome;
         this.cpf = cpf;
+        this.email = email;
+        this.senha = senha;
         this.endereco = endereco;
         this.telefone = telefone;
-        this.convenio = convenio;
     }
 
     public String getNome() {
@@ -34,6 +37,22 @@ public class Paciente {
         this.cpf = cpf;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
     public String getEndereco() {
         return endereco;
     }
@@ -48,13 +67,5 @@ public class Paciente {
 
     public void setTelefone(String telefone) {
         this.telefone = telefone;
-    }
-
-    public Convenio getConvenio() {
-        return convenio;
-    }
-
-    public void setConvenio(Convenio convenio) {
-        this.convenio = convenio;
     }
 }

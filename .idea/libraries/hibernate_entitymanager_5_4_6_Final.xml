@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="hibernate-entitymanager-5.4.6.Final">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/hibernate-entitymanager-5.4.6.Final.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="jar://$PROJECT_DIR$/lib/hibernate-entitymanager-5.4.6.Final.jar!/" recursive="false" />
+  </library>
+</component>

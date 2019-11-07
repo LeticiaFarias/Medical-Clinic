@@ -5,15 +5,15 @@ import java.time.LocalDate;
 public class Consulta {
     private LocalDate data;
     private Medico medico;
-    private  Paciente paciente;
+    private Cliente cliente;
 
     public Consulta() {
     }
 
-    public Consulta(LocalDate data, Medico medico, Paciente paciente) {
+    public Consulta(LocalDate data, Medico medico, Cliente cliente) {
         this.data = data;
         this.medico = medico;
-        this.paciente = paciente;
+        this.cliente = cliente;
     }
 
     public LocalDate getData() {
@@ -32,12 +32,12 @@ public class Consulta {
         this.medico = medico;
     }
 
-    public Paciente getPaciente() {
-        return paciente;
+    public Cliente getCliente() {
+        return cliente;
     }
 
-    public void setPaciente(Paciente paciente) {
-        this.paciente = paciente;
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
 
     public void realizarConsulta () {
