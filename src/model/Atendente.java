@@ -1,6 +1,13 @@
 package model;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "Atendentes")
 public class Atendente {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
     private String nome;
     private String cpf;
     private String email;
@@ -9,11 +16,20 @@ public class Atendente {
     public Atendente() {
     }
 
-    public Atendente(String nome, String cpf, String email, String senha) {
+    public Atendente(int id, String nome, String cpf, String email, String senha) {
+        this.id = id;
         this.nome = nome;
         this.cpf = cpf;
         this.email = email;
         this.senha = senha;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNome() {
