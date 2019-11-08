@@ -6,6 +6,7 @@ import java.util.List;
 import dao.GenericDAO;
 import dao.GenericJPA_DAO;
 import model.Administrador;
+import model.Atendente;
 
 public class App {
 
@@ -16,6 +17,8 @@ public class App {
 				try {
 					AdministradorCRUD frame = new AdministradorCRUD();
 					frame.setVisible(true);
+					AtendenteCRUD atendenteCRUD = new AtendenteCRUD();
+
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
