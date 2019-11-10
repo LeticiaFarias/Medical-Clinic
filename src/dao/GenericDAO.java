@@ -4,16 +4,20 @@ import java.util.List;
 
 public interface GenericDAO<T> {
 
-	public boolean persist(T entity);
+	public boolean persist(T entity); // Funcionando
+
+	public T findById(int id);
+
+	public List<T> findByNome(String nome); // Funcionando
+
+	public List<T> findByEmail(String email); // Funcionando
+
+	public List<T> findAll(); // Funcionando
 
 	public boolean update(T entity);
 
-	public List<T> findAll();
+	public boolean delete(String email, T entity); // Funcionando
 
-	public List<T> finByNome(String nome);
-
-	public List<T> findById(int id, Object t);
-
-	public boolean delete(int id, T entity);
+	public void close(); // Funcionando;
 
 }

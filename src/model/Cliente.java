@@ -1,71 +1,92 @@
 package model;
 
+import java.util.Calendar;
+
 public class Cliente {
-    private String nome;
-    private String cpf;
-    private String email;
-    private String senha;
-    private String endereco;
-    private String telefone;
+	private String cpf;
+	private String nome;
+	private String email; // Email será o login;
+	private String senha;
+	private Endereco endereco;
+	private Telefone telefone;
+	private Calendar dataAniver;
 
-    public Cliente() {
+	public Cliente() {
 
-    }
+	}
 
-    public Cliente(String nome, String cpf, String email, String senha, String endereco, String telefone) {
-        this.nome = nome;
-        this.cpf = cpf;
-        this.email = email;
-        this.senha = senha;
-        this.endereco = endereco;
-        this.telefone = telefone;
-    }
+	public Cliente(String cpf, String nome, String email, String senha, Endereco endereco, Telefone telefone,
+			Calendar dataAniver) {
+		super();
+		this.cpf = cpf;
+		this.nome = nome;
+		this.email = email;
+		this.senha = senha;
+		this.endereco = endereco;
+		this.telefone = telefone;
+		this.dataAniver = dataAniver;
+	}
 
-    public String getNome() {
-        return nome;
-    }
+	public String getCpf() {
+		return cpf;
+	}
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
 
-    public String getCpf() {
-        return cpf;
-    }
+	public String getNome() {
+		return nome;
+	}
 
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
 
-    public String getEmail() {
-        return email;
-    }
+	public String getEmail() {
+		return email;
+	}
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
-    public String getSenha() {
-        return senha;
-    }
+	public String getSenha() {
+		return senha;
+	}
 
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
 
-    public String getEndereco() {
-        return endereco;
-    }
+	public Endereco getEndereco() {
+		return endereco;
+	}
 
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
-    }
+	public void setEndereco(Endereco endereco) {
+		this.endereco = endereco;
+	}
 
-    public String getTelefone() {
-        return telefone;
-    }
+	public Telefone getTelefone() {
+		return telefone;
+	}
 
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
-    }
+	public void setTelefone(Telefone telefone) {
+		this.telefone = telefone;
+	}
+
+	public Calendar getDataAniver() {
+		return dataAniver;
+	}
+
+	public void setDataAniver(Calendar dataAniver) {
+		this.dataAniver = dataAniver;
+	}
+
+	@Override
+	public String toString() {
+		return "Usuário Cliente \nCPF: " + this.cpf + "\nNome: " + this.nome + "\nEmail=" + this.email + "\nSenha: "
+				+ this.senha + "\nEndereco: " + this.endereco.toString() + "\nTelefone: " + this.telefone.toString()
+				+ "\nData Aniversário: " + this.dataAniver + "\n";
+	}
 }

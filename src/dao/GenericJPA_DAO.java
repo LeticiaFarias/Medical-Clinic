@@ -1,16 +1,13 @@
 package dao;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
 import javax.persistence.PersistenceException;
 import javax.persistence.Query;
+import javax.persistence.criteria.CriteriaQuery;
 
-import exemplo.Contato;
-import exemplo.ContatoDAO;
-import exemplo.ContatoJPADAO;
 import exemplo.JPAUtil;
+import model.Administrador;
 
 import java.util.List;
 
@@ -18,11 +15,11 @@ public class GenericJPA_DAO<T> implements GenericDAO<T> {
 	private EntityTransaction transaction;
 	private EntityManager entityManager;
 
-	private final Class<T> type;
+	private Class<T> persistenceClass;
 
 	// Funcionando:
-	public GenericJPA_DAO(Class<T> type) {
-		this.type = type;
+	public GenericJPA_DAO() {
+		this.persistenceClass = persistenceClass;
 		this.entityManager = JPAUtil.getEntityManager();
 		this.transaction = entityManager.getTransaction();
 	}
@@ -31,8 +28,11 @@ public class GenericJPA_DAO<T> implements GenericDAO<T> {
 	public boolean persist(T entity) {
 		try {
 			transaction.begin();
+
 			entityManager.persist(entity);
+
 			transaction.commit();
+
 			return true;
 		} catch (PersistenceException e) {
 			transaction.rollback();
@@ -41,17 +41,56 @@ public class GenericJPA_DAO<T> implements GenericDAO<T> {
 		} finally {
 			entityManager.close();
 		}
+	}
+
+	@Override
+	public T findById(int id) {
+		return null;
+	}
+
+	// Funcionando
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<T> findByNome(String nome) {
+		Query query = entityManager.createNamedQuery("Administrador.findByNome");
+
+		query.setParameter(1, nome);
+
+		return query.getResultList();
+	}
+
+	// Funcionando
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<T> findByEmail(String email) {
+		Query query = entityManager.createNamedQuery("Administrador.findByEmail");
+
+		query.setParameter(1, email);
+
+		return query.getResultList();
+	}
+
+	// Funcionando
+	@Override
+	public List<T> findAll() {
+		Query query = entityManager.createNamedQuery("Administrador.findAll");
+
+		return query.getResultList();
 	}
 
 	@Override
 	public boolean update(T entity) {
 		try {
 			transaction.begin();
+
 			entityManager.merge(entity);
+
 			transaction.commit();
+
 			return true;
 		} catch (PersistenceException e) {
 			transaction.rollback();
+
 			e.printStackTrace();
 			return false;
 		} finally {
@@ -60,36 +99,15 @@ public class GenericJPA_DAO<T> implements GenericDAO<T> {
 	}
 
 	@Override
-	public List<T> findAll() {
-		return null;
-
-	}
-
-	@SuppressWarnings("unchecked")
-	@Override
-	public List<T> finByNome(String nome) {
-		EntityManager em = JPAUtil.getEntityManager();
-		Query query = em.createNamedQuery("SELECT a FROM Administradores a WHERE a.nome = nome");
-		
-		query.setParameter(1, nome);
-		
-		return query.getResultList();
-	}
-
-	@Override
-	public List<T> findById(int id, Object t) {
-		return null;
-
-	}
-
-	@Override
-	public boolean delete(int id, T entity) {
+	public boolean delete(String email, T entity) {
 		try {
 			transaction.begin();
-			entityManager.remove(entityManager.contains(entity) ? entity : entityManager.merge(entity));
-			transaction.commit();
-			return true;
 
+			entityManager.remove(entity);
+
+			transaction.commit();
+
+			return true;
 		} catch (PersistenceException e) {
 			transaction.rollback();
 			e.printStackTrace();
@@ -97,6 +115,11 @@ public class GenericJPA_DAO<T> implements GenericDAO<T> {
 		} finally {
 			entityManager.close();
 		}
+	}
+
+	@Override
+	public void close() {
+		JPAUtil.closeEntityManager();
 	}
 
 }
