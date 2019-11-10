@@ -1,26 +1,20 @@
 package view;
 
-import java.awt.EventQueue;
-import java.util.List;
-
-import dao.GenericDAO;
-import dao.GenericJPA_DAO;
-import model.Administrador;
+import controller.AdministradorController;
 
 public class App {
 
 	public static void main(String[] args) {
 
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					AdministradorCRUD frame = new AdministradorCRUD();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
+		// AdministradorVIEW.init();
+
+		// AdministradorController.findByNomeAdm("Érica Sousa");
+
+		// AdministradorController.findByEmailAdm("erica@teste.com");
+
+		// AdministradorController.findAllAdm();
+
+		AdministradorController.deleteAdm("isack@gmail.com");
 
 	}
 
