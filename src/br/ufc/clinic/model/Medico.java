@@ -1,4 +1,4 @@
-package model;
+package br.ufc.clinic.model;
 
 public class Medico {
 
