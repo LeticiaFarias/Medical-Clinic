@@ -1,4 +1,4 @@
-package dao;
+package br.ufc.clinic.dao;
 
 import java.util.List;
 
@@ -14,9 +14,9 @@ public interface GenericDAO<T> {
 
 	public List<T> findAll(); // Funcionando
 
-	public boolean update(T entity);
+	public boolean update(T entity); // Funcionando
 
-	public boolean delete(String email, T entity); // Funcionando
+	public T delete(String email);
 
 	public void close(); // Funcionando;
 

@@ -1,15 +1,12 @@
-package dao;
+package br.ufc.clinic.dao;
+
+import java.sql.Date;
+import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.PersistenceException;
 import javax.persistence.Query;
-import javax.persistence.criteria.CriteriaQuery;
-
-import exemplo.JPAUtil;
-import model.Administrador;
-
-import java.util.List;
 
 public class GenericJPA_DAO<T> implements GenericDAO<T> {
 	private EntityTransaction transaction;
@@ -20,7 +17,7 @@ public class GenericJPA_DAO<T> implements GenericDAO<T> {
 	// Funcionando:
 	public GenericJPA_DAO() {
 		this.persistenceClass = persistenceClass;
-		this.entityManager = JPAUtil.getEntityManager();
+		this.entityManager = br.ufc.clinic.util.JPAUtil.getEntityManager();
 		this.transaction = entityManager.getTransaction();
 	}
 
@@ -52,7 +49,7 @@ public class GenericJPA_DAO<T> implements GenericDAO<T> {
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<T> findByNome(String nome) {
-		Query query = entityManager.createNamedQuery("Administrador.findByNome");
+		Query query = entityManager.createNamedQuery("T.findByNome");
 
 		query.setParameter(1, nome);
 
@@ -63,7 +60,7 @@ public class GenericJPA_DAO<T> implements GenericDAO<T> {
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<T> findByEmail(String email) {
-		Query query = entityManager.createNamedQuery("Administrador.findByEmail");
+		Query query = entityManager.createNamedQuery("T.findByEmail");
 
 		query.setParameter(1, email);
 
@@ -71,9 +68,10 @@ public class GenericJPA_DAO<T> implements GenericDAO<T> {
 	}
 
 	// Funcionando
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<T> findAll() {
-		Query query = entityManager.createNamedQuery("Administrador.findAll");
+		Query query = entityManager.createNamedQuery("T.findAll");
 
 		return query.getResultList();
 	}
@@ -99,27 +97,27 @@ public class GenericJPA_DAO<T> implements GenericDAO<T> {
 	}
 
 	@Override
-	public boolean delete(String email, T entity) {
+	public T delete(String email) {
 		try {
 			transaction.begin();
 
-			entityManager.remove(entity);
+			Query query = entityManager.createNamedQuery("T.delete");
+
+			query.setParameter(1, email);
 
 			transaction.commit();
-
-			return true;
 		} catch (PersistenceException e) {
 			transaction.rollback();
 			e.printStackTrace();
-			return false;
 		} finally {
 			entityManager.close();
 		}
+		return null;
 	}
 
 	@Override
 	public void close() {
-		JPAUtil.closeEntityManager();
+		br.ufc.clinic.util.JPAUtil.closeEntityManager();
 	}
 
 }

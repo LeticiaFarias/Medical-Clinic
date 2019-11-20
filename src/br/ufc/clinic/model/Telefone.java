@@ -1,40 +1,36 @@
-package exemplo;
+package br.ufc.clinic.model;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 
 @Entity
+@NamedQueries({ @NamedQuery(name = "Telefone.findById", query = "from Telefone t where t.id = ?1") })
 public class Telefone {
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "telefone_id")
 	private int id;
-
 	private int ddd;
 	private int numero;
-
 	@ManyToOne
-	@JoinColumn(name = "contato_id")
-	private Contato contato;
+	@JoinColumn(name = "cliente_id")
+	private Cliente cliente;
 
 	public Telefone() {
+
 	}
 
-	public Telefone(int ddd, int numero, Contato contato) {
-		this(0, ddd, numero, contato);
-	}
-
-	public Telefone(int id, int ddd, int numero, Contato contato) {
+	public Telefone(int id, int ddd, int numero, Cliente cliente) {
+		super();
 		this.id = id;
 		this.ddd = ddd;
 		this.numero = numero;
-		this.contato = contato;
+		this.cliente = cliente;
 	}
 
 	public int getId() {
@@ -61,16 +57,17 @@ public class Telefone {
 		this.numero = numero;
 	}
 
-	public Contato getContato() {
-		return contato;
+	public Cliente getCliente() {
+		return cliente;
 	}
 
-	public void setContato(Contato contato) {
-		this.contato = contato;
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
 	}
 
 	@Override
 	public String toString() {
-		return "Telefone [id=" + id + ", ddd=" + ddd + ", numero=" + numero + "]";
+		return "(" + this.ddd + ")" + this.numero + "\n";
 	}
+
 }

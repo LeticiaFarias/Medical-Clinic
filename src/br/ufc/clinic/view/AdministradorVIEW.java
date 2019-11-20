@@ -1,10 +1,10 @@
-package view;
+package br.ufc.clinic.view;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import controller.AdministradorController;
+import br.ufc.clinic.controller.AdministradorController;
 
 import javax.swing.JButton;
 import javax.swing.JTextField;

@@ -1,4 +1,4 @@
-package util;
+package br.ufc.clinic.util;
 
 public class TextosUtil {
 
@@ -12,6 +12,14 @@ public class TextosUtil {
 
 	public static void emailInexistente() {
 		System.out.println("\nEmail não existe no sistema.\n");
+	}
+
+	public static void senhaIncorreta() {
+		System.out.println("\nSenha incorreta!\n");
+	}
+
+	public static void cpfExistente() {
+		System.out.println("\nO CPF informado ja está cadastrado no sistema.\n");
 	}
 
 }
