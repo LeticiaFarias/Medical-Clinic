@@ -1,34 +1,51 @@
 package br.ufc.clinic.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+
+@Entity
+@NamedQueries({ @NamedQuery(name = "Endereco.findById", query = "from Endereco a where a.cliente_id = ?1") })
 public class Endereco {
 
-	private String idProprietario; // CPF do proprietário;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
 	private String numero;
 	private String rua;
 	private String bairro;
 	private String complemento;
 	private String cep;
+	@ManyToOne
+	@JoinColumn(name = "cliente_id")
+	private Cliente cliente;
 
 	public Endereco() {
 
 	}
 
-	public Endereco(String idProprietario, String numero, String rua, String bairro, String complemento, String cep) {
+	public Endereco(int id, String numero, String rua, String bairro, String complemento, String cep, Cliente cliente) {
 		super();
-		this.idProprietario = idProprietario;
+		this.id = id;
 		this.numero = numero;
 		this.rua = rua;
 		this.bairro = bairro;
 		this.complemento = complemento;
 		this.cep = cep;
+		this.cliente = cliente;
 	}
 
-	public String getIdProprietario() {
-		return idProprietario;
+	public int getid() {
+		return id;
 	}
 
-	public void setIdProprietario(String idProprietario) {
-		this.idProprietario = idProprietario;
+	public void setid(int id) {
+		this.id = id;
 	}
 
 	public String getNumero() {
@@ -71,10 +88,25 @@ public class Endereco {
 		this.cep = cep;
 	}
 
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+
 	@Override
 	public String toString() {
-		return "Endereco\nCPF proprietário: " + this.idProprietario + "\n" + this.numero + "," + this.rua + ","
-				+ this.bairro + "," + this.complemento + "," + this.cep + "\n";
+		return this.numero + "," + this.rua + "," + this.bairro + "," + this.complemento + "," + this.cep + "\n";
 	}
 
 }

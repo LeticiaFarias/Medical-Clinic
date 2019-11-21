@@ -22,4 +22,8 @@ public class TextosUtil {
 		System.out.println("\nO CPF informado ja está cadastrado no sistema.\n");
 	}
 
+	public static void cpfInvalido() {
+		System.out.println("\nCPF inválido.\n");
+	}
+
 }

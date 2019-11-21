@@ -5,7 +5,10 @@ import java.util.List;
 
 import br.ufc.clinic.controller.AdministradorController;
 import br.ufc.clinic.controller.AgendaController;
+import br.ufc.clinic.controller.ClienteController;
+import br.ufc.clinic.controller.EnderecoController;
 import br.ufc.clinic.model.Agenda;
+import br.ufc.clinic.model.Cliente;
 
 public class App {
 
@@ -78,7 +81,35 @@ public class App {
 		 * for (Agenda agenda : agendas) { System.out.println(agenda); }
 		 */
 
-		AdministradorController.cadastraAdm(0, "Teste teste", "junior@teste.com", "ufc");
+		/*
+		 * ClienteController.cadastraCliente("000000000-04", "Edinete Miranda",
+		 * "edinete@teste.com", "ufc", 88, 911111111,
+		 * java.sql.Date.valueOf("1987-07-07"), "001", "DesembaRgador Américo Militão",
+		 * "Centro", "Altos", "638000-00");
+		 * ClienteController.cadastraCliente("000000000-05", "Júlio Serafim",
+		 * "julio@teste.com", "ufc", 88, 911111112, java.sql.Date.valueOf("1993-03-12"),
+		 * "002", "DesembaRgador Américo Militão", "Centro", null, "638000-00");
+		 * ClienteController.cadastraCliente("000000000-11", "Teste", "teste", "teste",
+		 * 00, 00, java.sql.Date.valueOf("1999-10-01"), "teste", "teste", "teste",
+		 * "teste", "teste");
+		 */
+
+		/*
+		 * List<Cliente> clientes = ClienteController.findByNome("Júlio Serafim");
+		 * 
+		 * for (Cliente cliente : clientes) { System.out.println(cliente); }
+		 */
+
+		/*
+		 * ClienteController.updateNome("Fernanda Albuquerque", "teste");
+		 * ClienteController.updateSenha("ufc", "teste");
+		 * ClienteController.updateEmail("fernanda@teste.com", "teste");
+		 * ClienteController.updateCpf("000000000-08", "fernanda@teste.com"); Date data
+		 * = java.sql.Date.valueOf("1999-11-09");
+		 * ClienteController.updateDataAniver(data, "fernanda@teste.com");
+		 */
+		
+		EnderecoController.updateEndereco(3, "002", "Avenida Brasil", null, null, null);
 
 	}
 

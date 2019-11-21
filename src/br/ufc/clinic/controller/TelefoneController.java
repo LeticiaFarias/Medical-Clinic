@@ -15,10 +15,7 @@ import br.ufc.clinic.util.TextosUtil;
 
 public class TelefoneController {
 
-	public static Telefone telefone = new Telefone();
-
-	public static Telefone cadastraTelefoneByProprietario(int id, int ddd, int numero, Cliente cliente) {
-
+	public static Telefone cadastraTelefone(int id, int ddd, int numero, Cliente cliente) {
 		Telefone telefone = new Telefone(id, ddd, numero, cliente);
 
 		try {

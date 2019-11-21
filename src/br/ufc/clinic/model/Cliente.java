@@ -1,12 +1,13 @@
 package br.ufc.clinic.model;
 
 import java.sql.Date;
-import java.util.Calendar;
 import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -18,12 +19,15 @@ import javax.persistence.OneToMany;
 		@NamedQuery(name = "Cliente.findByEmail", query = "from Cliente a where a.email = ?1") })
 public class Cliente {
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "cliente_id")
+	private int id;
 	private String cpf;
 	private String nome;
 	private String email; // Email será o login;
 	private String senha;
-	// private Endereco endereco;
+	@OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
+	private List<Endereco> enderecos;
 	private Date dataAniver;
 	@OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
 	private List<Telefone> telefones;
@@ -32,16 +36,24 @@ public class Cliente {
 
 	}
 
-	public Cliente(String cpf, String nome, String email, String senha,
-			/* Endereco endereco, */ List<Telefone> telefones, Date dataAniver) {
-		super();
+	public Cliente(int id, String cpf, String nome, String email, String senha, List<Endereco> enderecos,
+			List<Telefone> telefones, Date dataAniver) {
+		this.id = id;
 		this.cpf = cpf;
 		this.nome = nome;
 		this.email = email;
 		this.senha = senha;
-		// this.endereco = endereco;
+		this.enderecos = enderecos;
 		this.telefones = telefones;
 		this.dataAniver = dataAniver;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getCpf() {
@@ -76,11 +88,14 @@ public class Cliente {
 		this.senha = senha;
 	}
 
-	/*
-	 * public Endereco getEndereco() { return endereco; }
-	 * 
-	 * public void setEndereco(Endereco endereco) { this.endereco = endereco; }
-	 */
+	public List<Endereco> getEnderecos() {
+		return enderecos;
+	}
+
+	public void setEndereco(List<Endereco> enderecos) {
+		this.enderecos = enderecos;
+	}
+
 	public List<Telefone> getTelefones() {
 		return telefones;
 	}
@@ -99,9 +114,9 @@ public class Cliente {
 
 	@Override
 	public String toString() {
-		return "Usuário Cliente \nCPF: " + this.cpf + "\nNome: " + this.nome + "\nEmail=" + this.email + "\nSenha: "
-				+ this.senha + /* "\nEndereco: " + this.endereco.toString() + */"\nTelefone: "
-				+ this.telefones.toString() + "\nData Aniversário: " + this.dataAniver + "\n";
+		return "\nCPF: " + this.cpf + "\nNome: " + this.nome + "\nEmail: " + this.email + "\nSenha: " + this.senha
+				+ "\nEndereco: " + this.enderecos.toString() + "\nTelefone: " + this.telefones.toString()
+				+ "\nData Aniversário: " + this.dataAniver + "\n";
 	}
 
 }
