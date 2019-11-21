@@ -92,7 +92,6 @@ public class ValidaUtil {
 	}
 
 	// ---------- Validação de CPF ----------//
-
 	public static boolean validaCpfAtendente(String cpf) {
 		List<Atendente> atendentes = AtendenteController.findAll();
 
@@ -102,6 +101,28 @@ public class ValidaUtil {
 			}
 		}
 		return false;
+	}
+
+	public static boolean validaCpfCliente(String cpf) {
+		List<Cliente> atendentes = ClienteController.findAll();
+
+		for (Cliente cliente : atendentes) {
+			if (cliente.getCpf().equals(cpf)) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public static boolean validaCpf(String cpf) {
+		if (cpf.length() == 12) {
+			if (validaCpfAtendente(cpf) == false) {
+				if (validaCpfCliente(cpf) == false) {
+					return false;
+				}
+			}
+		}
+		return true;
 	}
 
 	// ---------- Criptrografar Senha ----------//

@@ -12,31 +12,42 @@ import javax.persistence.Query;
 
 import br.ufc.clinic.dao.GenericJPA_DAO;
 import br.ufc.clinic.model.Cliente;
+import br.ufc.clinic.model.Cliente;
+import br.ufc.clinic.model.Endereco;
 import br.ufc.clinic.model.Telefone;
 import br.ufc.clinic.util.TextosUtil;
 import br.ufc.clinic.util.ValidaUtil;
 
 public class ClienteController {
 
-	public static void cadastraCliente(String cpf, String nome, String email, String senha,
-			/* Endereco endereco, */ int ddd, int numero, Date dataAniver) {
+	public static void cadastraCliente(String cpf, String nome, String email, String senha, int ddd, int numero,
+			Date dataAniver, String num, String rua, String bairro, String complemento, String cep) {
 
-		if (ValidaUtil.validaEmailCliente(email) == false) {
-			String senhaCriptografada = ValidaUtil.criptografaSenha(senha);
+		if (ValidaUtil.validaEmail(email) == false) {
+			if (ValidaUtil.validaCpf(cpf) == false) {
+				String senhaCriptografada = ValidaUtil.criptografaSenha(senha);
 
-			Cliente cliente = new Cliente(cpf, nome, email, senhaCriptografada, null, dataAniver);
-			try {
-				GenericJPA_DAO<Cliente> genericDAO = new GenericJPA_DAO<Cliente>();
+				Cliente cliente = new Cliente(0, cpf, nome, email, senhaCriptografada, null, null, dataAniver);
+				try {
+					GenericJPA_DAO<Cliente> genericDAO = new GenericJPA_DAO<Cliente>();
 
-				genericDAO.persist(cliente);
-				genericDAO.close();
+					genericDAO.persist(cliente);
+					genericDAO.close();
 
-				Telefone telefone = TelefoneController.cadastraTelefoneByProprietario(0, ddd, numero, cliente);
-				List<Telefone> telefones = new ArrayList<Telefone>();
-				telefones.add(telefone);
-			} catch (IllegalStateException | PersistenceException e) {
-				TextosUtil.erro();
-				e.printStackTrace();
+					Telefone telefone = TelefoneController.cadastraTelefone(0, ddd, numero, cliente);
+					List<Telefone> telefones = new ArrayList<Telefone>();
+					telefones.add(telefone);
+
+					Endereco endereco = EnderecoController.cadastraEndereco(0, num, rua, bairro, complemento, cep,
+							cliente);
+					List<Endereco> enderecos = new ArrayList<Endereco>();
+					enderecos.add(endereco);
+				} catch (IllegalStateException | PersistenceException e) {
+					TextosUtil.erro();
+					e.printStackTrace();
+				}
+			} else {
+				TextosUtil.cpfExistente();
 			}
 
 		} else {
@@ -77,6 +88,85 @@ public class ClienteController {
 		Query query = em.createNamedQuery("Cliente.findAll");
 
 		return query.getResultList();
+	}
+
+	public static void updateNome(String newNome, String email) {
+		GenericJPA_DAO<Cliente> genericDao = new GenericJPA_DAO<Cliente>();
+
+		List<Cliente> clienteAux = findByEmail(email);
+
+		for (Cliente cliente : clienteAux) {
+			if (cliente.getEmail().equals(email)) {
+				cliente.setNome(newNome);
+
+				genericDao.update(cliente);
+			}
+		}
+	}
+
+	public static void updateCpf(String newCpf, String email) {
+		if (ValidaUtil.validaCpf(newCpf) == false) {
+			GenericJPA_DAO<Cliente> genericDao = new GenericJPA_DAO<Cliente>();
+
+			List<Cliente> clienteAux = findByEmail(email);
+
+			for (Cliente cliente : clienteAux) {
+				if (cliente.getEmail().equals(email)) {
+					cliente.setCpf(newCpf);
+
+					genericDao.update(cliente);
+				}
+			}
+		} else {
+			TextosUtil.cpfInvalido();
+		}
+	}
+
+	public static void updateEmail(String newEmail, String email) {
+		if (ValidaUtil.validaEmail(newEmail) == false) {
+
+			GenericJPA_DAO<Cliente> genericDao = new GenericJPA_DAO<Cliente>();
+
+			List<Cliente> clienteAux = findByEmail(email);
+
+			for (Cliente cliente : clienteAux) {
+				if (cliente.getEmail().equals(email)) {
+					cliente.setEmail(newEmail);
+
+					genericDao.update(cliente);
+				}
+			}
+		} else {
+			TextosUtil.emailExistente();
+		}
+	}
+
+	public static void updateSenha(String newSenha, String email) {
+		GenericJPA_DAO<Cliente> genericDao = new GenericJPA_DAO<Cliente>();
+
+		List<Cliente> clienteAux = findByEmail(email);
+
+		for (Cliente cliente : clienteAux) {
+			if (cliente.getEmail().equals(email)) {
+				cliente.setSenha(ValidaUtil.criptografaSenha(newSenha));
+
+				genericDao.update(cliente);
+			}
+		}
+	}
+
+	public static void updateDataAniver(Date newData, String email) {
+		GenericJPA_DAO<Cliente> genericDao = new GenericJPA_DAO<Cliente>();
+
+		List<Cliente> clienteAux = findByEmail(email);
+
+		for (Cliente cliente : clienteAux) {
+			if (cliente.getEmail().equals(email)) {
+				cliente.setDataAniver(newData);
+
+				genericDao.update(cliente);
+			}
+		}
 	}
 
 	public static void delete(String email) {
