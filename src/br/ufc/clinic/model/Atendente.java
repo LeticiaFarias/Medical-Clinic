@@ -88,6 +88,22 @@ public class Atendente {
 		}
 	}
 
+	public static Cliente cadastraCliente(String cpf, String nome, String email, String senha, int ddd, int numero,
+			Date dataAniver, String num, String rua, String bairro, String complemento, String cep) {
+		String senhaCriptografada = ValidaUtil.criptografaSenha(senha);
+		Cliente cliente = new Cliente(0, cpf, nome, email, senhaCriptografada, null, null, dataAniver);
+
+		return cliente;
+	}
+
+	public static Medico cadastraMedico(int id, String crm, String nome, String email, String senha,
+			String especialidade) {
+		String senhaCriptografada = ValidaUtil.criptografaSenha(senha);
+		Medico medico = new Medico(0, crm, nome, email, senhaCriptografada, especialidade);
+
+		return medico;
+	}
+
 	public static Agenda cadastrarAgenda(int id, String nomeMedico, String nomeCliente, String cpfCliente, Date date,
 			String horario) {
 		Agenda agenda = new Agenda(id, nomeMedico, nomeCliente, cpfCliente, date, horario);

@@ -13,6 +13,9 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 
+import br.ufc.clinic.util.TextosUtil;
+import br.ufc.clinic.util.ValidaUtil;
+
 @Entity
 @NamedQueries({ @NamedQuery(name = "Cliente.findAll", query = "from Cliente"),
 		@NamedQuery(name = "Cliente.findByNome", query = "from Cliente a where a.nome = ?1"),
@@ -110,6 +113,19 @@ public class Cliente {
 
 	public void setDataAniver(Date dataAniver) {
 		this.dataAniver = dataAniver;
+	}
+
+	public static void loginCliente(String email, String senha) {
+		if (ValidaUtil.validaEmailCliente(email) == true) {
+			if (ValidaUtil.validaSenhaCliente(email, senha) == true) {
+				System.out.println("\nBem vindo!\n");
+			} else {
+				TextosUtil.senhaIncorreta();
+			}
+		} else {
+			TextosUtil.emailInexistente();
+
+		}
 	}
 
 	@Override

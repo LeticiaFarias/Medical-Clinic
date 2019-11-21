@@ -11,6 +11,7 @@ import javax.persistence.PersistenceException;
 import javax.persistence.Query;
 
 import br.ufc.clinic.dao.GenericJPA_DAO;
+import br.ufc.clinic.model.Atendente;
 import br.ufc.clinic.model.Cliente;
 import br.ufc.clinic.model.Cliente;
 import br.ufc.clinic.model.Endereco;
@@ -25,9 +26,10 @@ public class ClienteController {
 
 		if (ValidaUtil.validaEmail(email) == false) {
 			if (ValidaUtil.validaCpf(cpf) == false) {
-				String senhaCriptografada = ValidaUtil.criptografaSenha(senha);
 
-				Cliente cliente = new Cliente(0, cpf, nome, email, senhaCriptografada, null, null, dataAniver);
+				Cliente cliente = Atendente.cadastraCliente(cpf, nome, email, senha, ddd, numero, dataAniver, num, rua,
+						bairro, complemento, cep);
+
 				try {
 					GenericJPA_DAO<Cliente> genericDAO = new GenericJPA_DAO<Cliente>();
 

@@ -15,8 +15,6 @@ import br.ufc.clinic.util.ValidaUtil;
 
 public class AdministradorController {
 
-	public static Administrador administrador = new Administrador();
-
 	public static void cadastraAdm(int id, String nome, String email, String senha) {
 
 		if (ValidaUtil.validaEmail(email) == false) {

@@ -91,6 +91,19 @@ public class ValidaUtil {
 		return false;
 	}
 
+	public static boolean validaSenhaCliente(String email, String senhaUser) {
+		List<Cliente> clientes = ClienteController.findByEmail(email);
+
+		String senhaUserCriptografada = criptografaSenha(senhaUser);
+
+		for (Cliente cliente : clientes) {
+			if (cliente.getSenha().equals(senhaUserCriptografada)) {
+				return true;
+			}
+		}
+		return false;
+	}
+
 	// ---------- Validação de CPF ----------//
 	public static boolean validaCpfAtendente(String cpf) {
 		List<Atendente> atendentes = AtendenteController.findAll();
