@@ -5,12 +5,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
+import javax.persistence.ManyToOne;;
 
 @Entity
-@NamedQueries({ @NamedQuery(name = "Endereco.findById", query = "from Endereco a where a.cliente_id = ?1") })
 public class Endereco {
 
 	@Id

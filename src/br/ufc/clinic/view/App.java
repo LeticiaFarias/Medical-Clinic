@@ -7,6 +7,7 @@ import br.ufc.clinic.controller.AdministradorController;
 import br.ufc.clinic.controller.AgendaController;
 import br.ufc.clinic.controller.ClienteController;
 import br.ufc.clinic.controller.EnderecoController;
+import br.ufc.clinic.controller.MedicoController;
 import br.ufc.clinic.model.Agenda;
 import br.ufc.clinic.model.Cliente;
 
@@ -107,9 +108,12 @@ public class App {
 		 * ClienteController.updateCpf("000000000-08", "fernanda@teste.com"); Date data
 		 * = java.sql.Date.valueOf("1999-11-09");
 		 * ClienteController.updateDataAniver(data, "fernanda@teste.com");
+		 * 
+		 * EnderecoController.updateEndereco(3, "002", "Avenida Brasil", null, null,
+		 * null);
 		 */
-		
-		EnderecoController.updateEndereco(3, "002", "Avenida Brasil", null, null, null);
+
+		MedicoController.cadastraMedico("00000000001", "Bruno Almeida", "bruno@teste", "ufc", "Cardiologista");
 
 	}
 
