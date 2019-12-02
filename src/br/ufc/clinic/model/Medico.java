@@ -7,6 +7,9 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 
+import br.ufc.clinic.util.TextosUtil;
+import br.ufc.clinic.util.ValidaUtil;
+
 @Entity
 @NamedQueries({ @NamedQuery(name = "Medico.findAll", query = "from Medico"),
 		@NamedQuery(name = "Medico.findByNome", query = "from Medico a where a.nome = ?1"),
@@ -83,10 +86,23 @@ public class Medico {
 		this.especialidade = especialidade;
 	}
 
+	public static void loginMedico(String email, String senha) {
+		if (ValidaUtil.validaEmailMedico(email) == true) {
+			if (ValidaUtil.validaSenhaMedico(email, senha) == true) {
+				System.out.println("\nBem vindo!\n");
+			} else {
+				TextosUtil.senhaIncorreta();
+			}
+		} else {
+			TextosUtil.emailInexistente();
+
+		}
+	}
+
 	@Override
 	public String toString() {
-		return "\nCRM: " + this.crm + "\nNome: " + this.nome + "\nEmail: " + this.email + "\nSenha: "
-				+ this.senha + "\nEspecialidade: " + this.especialidade + "\n";
+		return "\nCRM: " + this.crm + "\nNome: " + this.nome + "\nEmail: " + this.email + "\nSenha: " + this.senha
+				+ "\nEspecialidade: " + this.especialidade + "\n";
 	}
 
 }
