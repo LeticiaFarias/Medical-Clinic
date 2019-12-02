@@ -35,8 +35,8 @@ public class TelaCadastroMedico extends javax.swing.JFrame {
 		jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 		jPanel1.setForeground(new java.awt.Color(255, 255, 255));
 
-		//icon.setIcon(new
-		//javax.swing.ImageIcon(getClass().getResource("/img/logosuperp.png"))); //
+		// icon.setIcon(new
+		// javax.swing.ImageIcon(getClass().getResource("/img/logosuperp.png"))); //
 		// NOI18N
 
 		jLabel1.setFont(new java.awt.Font("Code Light", 0, 24)); // NOI18N
@@ -172,7 +172,7 @@ public class TelaCadastroMedico extends javax.swing.JFrame {
 	}// </editor-fold>//GEN-END:initComponents
 
 	private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_txtNomeActionPerformed
-		
+		txtNome.add(jLabel1);
 	}// GEN-LAST:event_txtNomeActionPerformed
 
 	private void txtCSenhaActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_txtCSenhaActionPerformed
@@ -218,14 +218,6 @@ public class TelaCadastroMedico extends javax.swing.JFrame {
 	 * @param args the command line arguments
 	 */
 	public static void main(String args[]) {
-		/* Set the Nimbus look and feel */
-		// <editor-fold defaultstate="collapsed" desc=" Look and feel setting code
-		// (optional) ">
-		/*
-		 * If Nimbus (introduced in Java SE 6) is not available, stay with the default
-		 * look and feel. For details see
-		 * http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
-		 */
 		try {
 			for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
 				if ("Nimbus".equals(info.getName())) {
