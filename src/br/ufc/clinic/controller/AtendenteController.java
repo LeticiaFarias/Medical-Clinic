@@ -15,13 +15,13 @@ import br.ufc.clinic.util.ValidaUtil;
 
 public class AtendenteController {
 
-	public static void cadastraAtendente(int id, String cpf, String nome, String email, String senha) {
+	public static void cadastraAtendente(String cpf, String nome, String email, String senha) {
 
 		if (ValidaUtil.validaCpfAtendente(cpf) == false) {
 			if (ValidaUtil.validaEmail(email) == false) {
 				String senhaCriptografada = ValidaUtil.criptografaSenha(senha);
 
-				Atendente atendente = new Atendente(id, cpf, nome, email, senhaCriptografada);
+				Atendente atendente = new Atendente(0, cpf, nome, email, senhaCriptografada);
 
 				try {
 					GenericJPA_DAO<Atendente> genericDAO = new GenericJPA_DAO<Atendente>();
