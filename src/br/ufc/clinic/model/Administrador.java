@@ -17,7 +17,7 @@ import br.ufc.clinic.util.ValidaUtil;
 		@NamedQuery(name = "Administrador.findByNome", query = "from Administrador a where a.nome = ?1"),
 		@NamedQuery(name = "Administrador.findByEmail", query = "from Administrador a where a.email = ?1"),
 		@NamedQuery(name = "Administrador.delete", query = "from Administrador a where a.email = ?1") })
-public class Administrador {
+public class Administrador extends Usuario {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -81,6 +81,13 @@ public class Administrador {
 		} else {
 			TextosUtil.emailInexistente();
 		}
+	}
+
+	public static Atendente cadastraAtendente(int id, String cpf, String nome, String email, String senha) {
+		String senhaCriptografada = ValidaUtil.criptografaSenha(senha);
+		Atendente atendente = new Atendente(id, cpf, nome, email, senhaCriptografada);
+
+		return atendente;
 	}
 
 	public String toString() {

@@ -8,9 +8,11 @@ import java.util.List;
 import br.ufc.clinic.controller.AdministradorController;
 import br.ufc.clinic.controller.AtendenteController;
 import br.ufc.clinic.controller.ClienteController;
+import br.ufc.clinic.controller.MedicoController;
 import br.ufc.clinic.model.Administrador;
 import br.ufc.clinic.model.Atendente;
 import br.ufc.clinic.model.Cliente;
+import br.ufc.clinic.model.Medico;
 
 public class ValidaUtil {
 
@@ -44,6 +46,18 @@ public class ValidaUtil {
 
 		for (Cliente cliente : clientes) {
 			if (cliente.getEmail().equals(email)) {
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	public static boolean validaEmailMedico(String email) {
+		List<Medico> medicos = MedicoController.findByEmail(email);
+
+		for (Medico medico : medicos) {
+			if (medico.getEmail().equals(email)) {
 				return true;
 			}
 		}
@@ -98,6 +112,19 @@ public class ValidaUtil {
 
 		for (Cliente cliente : clientes) {
 			if (cliente.getSenha().equals(senhaUserCriptografada)) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public static boolean validaSenhaMedico(String email, String senhaUser) {
+		List<Medico> medicos = MedicoController.findByEmail(email);
+
+		String senhaUserCriptografada = criptografaSenha(senhaUser);
+
+		for (Medico medico : medicos) {
+			if (medico.getSenha().equals(senhaUserCriptografada)) {
 				return true;
 			}
 		}
