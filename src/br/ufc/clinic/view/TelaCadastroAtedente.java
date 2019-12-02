@@ -144,7 +144,7 @@ public class TelaCadastroAtedente extends javax.swing.JFrame {
 				|| txtSenha.getText().isEmpty() || txtConfirmarSenha.getText().isEmpty()) {
 			JOptionPane.showMessageDialog(null, "Campos vazios!");
 
-		} else if (txtCpf.getText().length() != 11) {
+		} else if (txtCpf.getText().length() != 14) {
 			JOptionPane.showMessageDialog(null, "CPF inválido!\nSeu CPF deve conter 11 dígitos");
 
 		} else if (Arrays.equals(txtSenha.getPassword(), txtConfirmarSenha.getPassword()) == false) {
@@ -187,6 +187,12 @@ public class TelaCadastroAtedente extends javax.swing.JFrame {
 			java.util.logging.Logger.getLogger(TelaCadastroAtedente.class.getName()).log(java.util.logging.Level.SEVERE,
 					null, ex);
 		}
+
+		java.awt.EventQueue.invokeLater(new Runnable() {
+			public void run() {
+
+			}
+		});
 	}
 
 	// Variables declaration - do not modify//GEN-BEGIN:variables
