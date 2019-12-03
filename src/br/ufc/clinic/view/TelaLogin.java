@@ -27,7 +27,7 @@ public class TelaLogin extends javax.swing.JFrame {
 		jPanel1 = new javax.swing.JPanel();
 		jLabel4 = new javax.swing.JLabel();
 		buttonEntrar = new javax.swing.JButton();
-		buttonVoltar = new javax.swing.JButton();
+		bottonCadastro = new javax.swing.JButton();
 		txtLogin = new javax.swing.JTextField();
 		txtSenha = new javax.swing.JPasswordField();
 
@@ -56,10 +56,10 @@ public class TelaLogin extends javax.swing.JFrame {
 			}
 		});
 
-		buttonVoltar.setBackground(new java.awt.Color(255, 255, 255));
-		buttonVoltar.setFont(new java.awt.Font("Code Light", 0, 11)); // NOI18N
-		buttonVoltar.setText("VOLTAR");
-		buttonVoltar.addActionListener(new java.awt.event.ActionListener() {
+		bottonCadastro.setBackground(new java.awt.Color(255, 255, 255));
+		bottonCadastro.setFont(new java.awt.Font("Code Light", 0, 11)); // NOI18N
+		bottonCadastro.setText("Cadastre-se");
+		bottonCadastro.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
 				TelaCriarConta telaCriarConta = new TelaCriarConta();
 				telaCriarConta.setVisible(true);
@@ -74,7 +74,7 @@ public class TelaLogin extends javax.swing.JFrame {
 								.addGroup(jPanel1Layout.createSequentialGroup().addContainerGap(126, Short.MAX_VALUE)
 										.addGroup(jPanel1Layout.createParallelGroup(Alignment.LEADING)
 												.addGroup(jPanel1Layout.createSequentialGroup()
-														.addComponent(buttonVoltar, GroupLayout.PREFERRED_SIZE, 111,
+														.addComponent(bottonCadastro, GroupLayout.PREFERRED_SIZE, 111,
 																GroupLayout.PREFERRED_SIZE)
 														.addGap(18)
 														.addComponent(buttonEntrar, GroupLayout.PREFERRED_SIZE, 111,
@@ -87,19 +87,19 @@ public class TelaLogin extends javax.swing.JFrame {
 												.addComponent(txtSenha, GroupLayout.PREFERRED_SIZE, 235,
 														GroupLayout.PREFERRED_SIZE))))
 						.addGap(74)));
-		jPanel1Layout.setVerticalGroup(jPanel1Layout.createParallelGroup(Alignment.LEADING)
-				.addGroup(jPanel1Layout.createSequentialGroup()
-						.addComponent(jLabel4, GroupLayout.PREFERRED_SIZE, 149, GroupLayout.PREFERRED_SIZE).addGap(38)
-						.addComponent(txtLogin, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-								GroupLayout.PREFERRED_SIZE)
-						.addGap(32)
-						.addComponent(txtSenha, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-								GroupLayout.PREFERRED_SIZE)
-						.addPreferredGap(ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
-						.addGroup(jPanel1Layout.createParallelGroup(Alignment.BASELINE)
-								.addComponent(buttonEntrar, GroupLayout.PREFERRED_SIZE, 31, GroupLayout.PREFERRED_SIZE)
-								.addComponent(buttonVoltar, GroupLayout.PREFERRED_SIZE, 31, GroupLayout.PREFERRED_SIZE))
-						.addGap(43)));
+		jPanel1Layout.setVerticalGroup(jPanel1Layout.createParallelGroup(Alignment.LEADING).addGroup(jPanel1Layout
+				.createSequentialGroup()
+				.addComponent(jLabel4, GroupLayout.PREFERRED_SIZE, 149, GroupLayout.PREFERRED_SIZE).addGap(38)
+				.addComponent(txtLogin, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+						GroupLayout.PREFERRED_SIZE)
+				.addGap(32)
+				.addComponent(
+						txtSenha, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+				.addPreferredGap(ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
+				.addGroup(jPanel1Layout.createParallelGroup(Alignment.BASELINE)
+						.addComponent(buttonEntrar, GroupLayout.PREFERRED_SIZE, 31, GroupLayout.PREFERRED_SIZE)
+						.addComponent(bottonCadastro, GroupLayout.PREFERRED_SIZE, 31, GroupLayout.PREFERRED_SIZE))
+				.addGap(43)));
 		jPanel1.setLayout(jPanel1Layout);
 
 		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -189,7 +189,7 @@ public class TelaLogin extends javax.swing.JFrame {
 
 	// Variables declaration - do not modify//GEN-BEGIN:variables
 	private javax.swing.JButton buttonEntrar;
-	private javax.swing.JButton buttonVoltar;
+	private javax.swing.JButton bottonCadastro;
 	private javax.swing.JLabel jLabel4;
 	private javax.swing.JPanel jPanel1;
 	private javax.swing.JTextField txtLogin;
