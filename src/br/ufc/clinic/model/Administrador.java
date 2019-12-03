@@ -71,16 +71,15 @@ public class Administrador extends Usuario {
 		this.senha = senha;
 	}
 
-	public static void loginAdm(String email, String senha) {
-		if (ValidaUtil.validaEmailAdm(email) == true) {
-			if (ValidaUtil.validaSenhaAdm(email, senha) == true) {
-				System.out.println("\nBem vindo!\n");
-			} else {
-				TextosUtil.senhaIncorreta();
-			}
+	public static boolean loginAdm(String email, String senha) {
+		if (ValidaUtil.validaSenhaAdm(email, senha) == true) {
+			System.out.println("\nBem vindo!\n");
+			return true;
 		} else {
-			TextosUtil.emailInexistente();
+			TextosUtil.senhaIncorreta();
+			return false;
 		}
+
 	}
 
 	public static Atendente cadastraAtendente(int id, String cpf, String nome, String email, String senha) {

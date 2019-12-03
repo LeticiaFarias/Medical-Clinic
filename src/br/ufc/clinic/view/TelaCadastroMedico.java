@@ -4,8 +4,11 @@ import java.util.Arrays;
 import javax.swing.JOptionPane;
 
 import br.ufc.clinic.controller.MedicoController;
-import br.ufc.clinic.model.Medico;
-import br.ufc.clinic.view.TelaCriarConta;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.GroupLayout;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
 
 public class TelaCadastroMedico extends javax.swing.JFrame {
 	private static final long serialVersionUID = 1L;
@@ -19,6 +22,7 @@ public class TelaCadastroMedico extends javax.swing.JFrame {
 		jPanel1 = new javax.swing.JPanel();
 		icon = new javax.swing.JLabel();
 		jLabelCadastraMedicoTXT = new javax.swing.JLabel();
+		buttonVoltar = new javax.swing.JButton();
 		buttonRestaurar = new javax.swing.JButton();
 		buttonCadastrar = new javax.swing.JButton();
 		txtCpf = new javax.swing.JTextField();
@@ -83,69 +87,60 @@ public class TelaCadastroMedico extends javax.swing.JFrame {
 			}
 		});
 
+		buttonVoltar.setFont(new java.awt.Font("Code Light", 0, 11));
+		buttonVoltar.setText("VOLTAR");
+		buttonVoltar.addActionListener(new ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				buttonVoltarActionPerformed(evt);
+			}
+		});
+
 		javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+		jPanel1Layout.setHorizontalGroup(jPanel1Layout.createParallelGroup(Alignment.LEADING).addGroup(jPanel1Layout
+				.createSequentialGroup().addGap(61)
+				.addGroup(jPanel1Layout.createParallelGroup(Alignment.LEADING)
+						.addGroup(jPanel1Layout.createSequentialGroup().addGap(11).addComponent(icon).addGap(49)
+								.addComponent(jLabelCadastraMedicoTXT))
+						.addGroup(jPanel1Layout.createParallelGroup(Alignment.TRAILING)
+								.addComponent(txtCpf, GroupLayout.PREFERRED_SIZE, 394, GroupLayout.PREFERRED_SIZE)
+								.addComponent(txtNome, GroupLayout.PREFERRED_SIZE, 394, GroupLayout.PREFERRED_SIZE)
+								.addComponent(txtEspecialidade, GroupLayout.PREFERRED_SIZE, 394,
+										GroupLayout.PREFERRED_SIZE)
+								.addComponent(txtSenha, GroupLayout.PREFERRED_SIZE, 394, GroupLayout.PREFERRED_SIZE)
+								.addComponent(txtConfirmarSenha, GroupLayout.PREFERRED_SIZE, 394,
+										GroupLayout.PREFERRED_SIZE)
+								.addGroup(jPanel1Layout.createSequentialGroup()
+										.addComponent(buttonVoltar, GroupLayout.PREFERRED_SIZE, 120,
+												GroupLayout.PREFERRED_SIZE)
+										.addGap(18)
+										.addComponent(buttonRestaurar, GroupLayout.PREFERRED_SIZE, 120,
+												GroupLayout.PREFERRED_SIZE)
+										.addPreferredGap(ComponentPlacement.UNRELATED).addComponent(buttonCadastrar,
+												GroupLayout.PREFERRED_SIZE, 120, GroupLayout.PREFERRED_SIZE))
+								.addComponent(txtEmail, GroupLayout.PREFERRED_SIZE, 394, GroupLayout.PREFERRED_SIZE)
+								.addComponent(txtCrm, GroupLayout.PREFERRED_SIZE, 394, GroupLayout.PREFERRED_SIZE)))
+				.addContainerGap(60, Short.MAX_VALUE)));
+		jPanel1Layout.setVerticalGroup(jPanel1Layout.createParallelGroup(Alignment.LEADING).addGroup(jPanel1Layout
+				.createSequentialGroup().addGap(19)
+				.addGroup(jPanel1Layout.createParallelGroup(Alignment.TRAILING)
+						.addComponent(jLabelCadastraMedicoTXT, GroupLayout.PREFERRED_SIZE, 40,
+								GroupLayout.PREFERRED_SIZE)
+						.addComponent(icon))
+				.addGap(63).addComponent(txtNome, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE).addGap(18)
+				.addComponent(txtCpf, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE).addGap(18)
+				.addComponent(txtEmail, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE).addGap(18)
+				.addComponent(txtCrm, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE).addGap(18)
+				.addComponent(txtEspecialidade, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE).addGap(18)
+				.addComponent(txtSenha, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE).addGap(18)
+				.addComponent(txtConfirmarSenha, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+						GroupLayout.PREFERRED_SIZE)
+				.addPreferredGap(ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+				.addGroup(jPanel1Layout.createParallelGroup(Alignment.BASELINE)
+						.addComponent(buttonCadastrar, GroupLayout.PREFERRED_SIZE, 29, GroupLayout.PREFERRED_SIZE)
+						.addComponent(buttonVoltar, GroupLayout.PREFERRED_SIZE, 29, GroupLayout.PREFERRED_SIZE)
+						.addComponent(buttonRestaurar, GroupLayout.PREFERRED_SIZE, 29, GroupLayout.PREFERRED_SIZE))
+				.addGap(28)));
 		jPanel1.setLayout(jPanel1Layout);
-		jPanel1Layout.setHorizontalGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGroup(jPanel1Layout.createSequentialGroup().addGap(61, 61, 61)
-						.addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-								.addGroup(jPanel1Layout.createSequentialGroup().addGap(11, 11, 11).addComponent(icon)
-										.addGap(49, 49, 49).addComponent(jLabelCadastraMedicoTXT))
-								.addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-										.addComponent(txtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 394,
-												javax.swing.GroupLayout.PREFERRED_SIZE)
-										.addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 394,
-												javax.swing.GroupLayout.PREFERRED_SIZE)
-										.addComponent(txtEspecialidade, javax.swing.GroupLayout.PREFERRED_SIZE, 394,
-												javax.swing.GroupLayout.PREFERRED_SIZE)
-										.addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 394,
-												javax.swing.GroupLayout.PREFERRED_SIZE)
-										.addComponent(txtConfirmarSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 394,
-												javax.swing.GroupLayout.PREFERRED_SIZE)
-										.addComponent(buttonCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 120,
-												javax.swing.GroupLayout.PREFERRED_SIZE)
-										.addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 394,
-												javax.swing.GroupLayout.PREFERRED_SIZE)
-										.addComponent(txtCrm, javax.swing.GroupLayout.PREFERRED_SIZE, 394,
-												javax.swing.GroupLayout.PREFERRED_SIZE))
-								.addComponent(buttonRestaurar, javax.swing.GroupLayout.PREFERRED_SIZE, 120,
-										javax.swing.GroupLayout.PREFERRED_SIZE))
-						.addContainerGap(60, Short.MAX_VALUE)));
-		jPanel1Layout
-				.setVerticalGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-						.addGroup(jPanel1Layout.createSequentialGroup().addGap(19, 19, 19)
-								.addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-										.addComponent(jLabelCadastraMedicoTXT, javax.swing.GroupLayout.PREFERRED_SIZE,
-												40, javax.swing.GroupLayout.PREFERRED_SIZE)
-										.addComponent(icon))
-								.addGap(63, 63, 63)
-								.addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 34,
-										javax.swing.GroupLayout.PREFERRED_SIZE)
-								.addGap(18, 18, 18)
-								.addComponent(txtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 34,
-										javax.swing.GroupLayout.PREFERRED_SIZE)
-								.addGap(18, 18, 18)
-								.addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 34,
-										javax.swing.GroupLayout.PREFERRED_SIZE)
-								.addGap(18, 18, 18)
-								.addComponent(txtCrm, javax.swing.GroupLayout.PREFERRED_SIZE, 34,
-										javax.swing.GroupLayout.PREFERRED_SIZE)
-								.addGap(18, 18, 18)
-								.addComponent(txtEspecialidade, javax.swing.GroupLayout.PREFERRED_SIZE, 34,
-										javax.swing.GroupLayout.PREFERRED_SIZE)
-								.addGap(18, 18, 18)
-								.addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 34,
-										javax.swing.GroupLayout.PREFERRED_SIZE)
-								.addGap(18, 18, 18)
-								.addComponent(txtConfirmarSenha, javax.swing.GroupLayout.PREFERRED_SIZE,
-										javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-								.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37,
-										Short.MAX_VALUE)
-								.addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-										.addComponent(buttonCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 29,
-												javax.swing.GroupLayout.PREFERRED_SIZE)
-										.addComponent(buttonRestaurar, javax.swing.GroupLayout.PREFERRED_SIZE, 29,
-												javax.swing.GroupLayout.PREFERRED_SIZE))
-								.addGap(28, 28, 28)));
 
 		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
 		getContentPane().setLayout(layout);
@@ -159,6 +154,23 @@ public class TelaCadastroMedico extends javax.swing.JFrame {
 		setLocationRelativeTo(null);
 	}
 
+	private void buttonVoltarActionPerformed(java.awt.event.ActionEvent evt) {
+		TelaCriarConta telaCriarConta = new TelaCriarConta();
+		telaCriarConta.setVisible(true);
+
+		dispose();
+	}
+
+	private void buttonRestaurarActionPerformed(java.awt.event.ActionEvent evt) {
+		txtNome.setText("");
+		txtCpf.setText("");
+		txtEmail.setText("");
+		txtCrm.setText("");
+		txtEspecialidade.setText("");
+		txtSenha.setText("");
+		txtConfirmarSenha.setText("");
+	}
+
 	@SuppressWarnings("deprecation")
 	private void buttonCadastrarActionPerformed(java.awt.event.ActionEvent evt) {
 		if (txtNome.getText().isEmpty() || txtCpf.getText().isEmpty() || txtEmail.getText().isEmpty()
@@ -167,25 +179,24 @@ public class TelaCadastroMedico extends javax.swing.JFrame {
 			JOptionPane.showMessageDialog(null, "Campos vazios!");
 
 		} else if (txtCpf.getText().length() != 14) {
+			txtCpf.setText("");
+
 			JOptionPane.showMessageDialog(null, "CPF inválido!\nSeu CPF deve conter 11 números.");
 
 		} else if (Arrays.equals(txtSenha.getPassword(), txtConfirmarSenha.getPassword()) == false) {
+			txtSenha.setText("");
+			txtConfirmarSenha.setText("");
+
 			JOptionPane.showMessageDialog(null, "As senhas informadas não correspondem!");
 
 		} else {
 			MedicoController.cadastraMedico(txtCrm.getText(), txtNome.getText(), txtEmail.getText(), txtSenha.getText(),
 					txtEspecialidade.getText());
 
+			buttonRestaurarActionPerformed(evt);
+
 			JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso!");
 		}
-	}
-
-	private void buttonRestaurarActionPerformed(java.awt.event.ActionEvent evt) {
-		txtNome.setText("");
-		txtSenha.setText("");
-		txtCpf.setText("");
-		txtEspecialidade.setText("");
-		txtConfirmarSenha.setText("");
 	}
 
 	public static void main(String args[]) {
@@ -230,5 +241,6 @@ public class TelaCadastroMedico extends javax.swing.JFrame {
 	private javax.swing.JTextField txtCrm;
 	private javax.swing.JTextField txtNome;
 	private javax.swing.JPasswordField txtSenha;
+	private JButton buttonVoltar;
 	// End of variables declaration//GEN-END:variables
 }

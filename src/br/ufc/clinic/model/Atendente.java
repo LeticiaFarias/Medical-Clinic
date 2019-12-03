@@ -75,17 +75,17 @@ public class Atendente {
 		this.senha = senha;
 	}
 
-	public static void loginAtendente(String email, String senha) {
-		if (ValidaUtil.validaEmailAtendente(email) == true) {
-			if (ValidaUtil.validaSenhaAtendente(email, senha) == true) {
-				System.out.println("\nBem vindo!\n");
-			} else {
-				TextosUtil.senhaIncorreta();
-			}
-		} else {
-			TextosUtil.emailInexistente();
+	public static boolean loginAtendente(String email, String senha) {
+		if (ValidaUtil.validaSenhaAtendente(email, senha) == true) {
+			System.out.println("\nBem vindo!\n");
 
+			return true;
+		} else {
+			TextosUtil.senhaIncorreta();
+
+			return false;
 		}
+
 	}
 
 	public static Cliente cadastraCliente(String cpf, String nome, String email, String senha, int ddd, int numero,

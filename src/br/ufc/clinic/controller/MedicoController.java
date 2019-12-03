@@ -18,7 +18,7 @@ public class MedicoController {
 
 	public static void cadastraMedico(String crm, String nome, String email, String senha, String especialidade) {
 
-		if (ValidaUtil.validaEmail(email) == false) {
+		if (ValidaUtil.validaEmail(email) == 0) {
 
 			Medico medico = Atendente.cadastraMedico(0, crm, nome, email, senha, especialidade);
 			try {
@@ -125,6 +125,10 @@ public class MedicoController {
 				genericDao.update(medico);
 			}
 		}
+	}
+
+	public static boolean login(String crm, String senha) {
+		return Medico.loginMedico(crm, senha);
 	}
 
 }
