@@ -196,6 +196,11 @@ public class TelaCadastroMedico extends javax.swing.JFrame {
 			buttonRestaurarActionPerformed(evt);
 
 			JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso!");
+
+			TelaMenuMedico telaMenuMedico = new TelaMenuMedico();
+			telaMenuMedico.setVisible(true);
+
+			dispose();
 		}
 	}
 

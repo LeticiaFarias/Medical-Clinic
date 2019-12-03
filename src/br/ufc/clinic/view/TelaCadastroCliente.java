@@ -4,7 +4,13 @@ package br.ufc.clinic.view;
 import java.util.Arrays;
 import javax.swing.JOptionPane;
 
+import br.ufc.clinic.controller.ClienteController;
 import br.ufc.clinic.view.TelaCriarConta;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.GroupLayout;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.JTextField;
+import javax.swing.JPasswordField;
 
 public class TelaCadastroCliente extends javax.swing.JFrame {
 	private static final long serialVersionUID = 1L;
@@ -15,18 +21,24 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
 
 	private void initComponents() {
 
-		jPanel1 = new javax.swing.JPanel();
-		txtNome = new javax.swing.JTextField();
-		txtCpf = new javax.swing.JTextField();
-		icon = new javax.swing.JLabel();
+		jPane = new javax.swing.JPanel();
 		jLabelCadastrarClienteTXT = new javax.swing.JLabel();
+		icon = new javax.swing.JLabel();
 		buttonRestaurar = new javax.swing.JButton();
 		buttonCadastrar = new javax.swing.JButton();
+		txtNome = new javax.swing.JTextField();
+		txtCpf = new javax.swing.JTextField();
 		txtDataNasc = new javax.swing.JTextField();
-		txtEndereco = new javax.swing.JTextField();
-		txtSenha = new javax.swing.JTextField();
+		txtDDD = new javax.swing.JTextField();
+		txtRua = new javax.swing.JTextField();
 		txtEmail = new javax.swing.JTextField();
 		txtTelefone = new javax.swing.JTextField();
+		txtNumero = new javax.swing.JTextField();
+		txtBairro = new javax.swing.JTextField();
+		txtCEP = new javax.swing.JTextField();
+		txtComplemento = new javax.swing.JTextField();
+		txtSenha = new javax.swing.JPasswordField();
+		txtConfirmarSenha = new javax.swing.JPasswordField();
 
 		setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 		setTitle("Cadastro");
@@ -34,52 +46,30 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
 		setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 		setResizable(false);
 
-		jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-		jPanel1.setForeground(new java.awt.Color(255, 255, 255));
+		jPane.setBackground(new java.awt.Color(255, 255, 255));
+		jPane.setForeground(new java.awt.Color(255, 255, 255));
+
+		// icon.setIcon(new
+		// javax.swing.ImageIcon(getClass().getResource("/img/logosuperp.png")));
+
+		jLabelCadastrarClienteTXT.setFont(new java.awt.Font("Code Light", 0, 24));
+		jLabelCadastrarClienteTXT.setForeground(new java.awt.Color(0, 0, 51));
+		jLabelCadastrarClienteTXT.setText("Cadastrar cliente");
 
 		txtNome.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 		txtNome.setBorder(javax.swing.BorderFactory.createTitledBorder("NOME"));
-		txtNome.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				txtUsuarioActionPerformed(evt);
-			}
-		});
 
 		txtCpf.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 		txtCpf.setBorder(javax.swing.BorderFactory.createTitledBorder("CPF"));
 
-		// icon.setIcon(new
-		// javax.swing.ImageIcon(getClass().getResource("/img/logosuperp.png"))); //
-		// NOI18N
-
-		jLabelCadastrarClienteTXT.setFont(new java.awt.Font("Code Light", 0, 24)); // NOI18N
-		jLabelCadastrarClienteTXT.setForeground(new java.awt.Color(0, 0, 51));
-		jLabelCadastrarClienteTXT.setText("Cadastrar cliente");
-
-		buttonRestaurar.setFont(new java.awt.Font("Code Light", 0, 11)); // NOI18N
-		buttonRestaurar.setText("LIMPAR");
-		buttonRestaurar.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				buttonRestaurarActionPerformed(evt);
-			}
-		});
-
-		buttonCadastrar.setFont(new java.awt.Font("Code Light", 0, 11)); // NOI18N
-		buttonCadastrar.setText("AVANÇAR");
-		buttonCadastrar.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				buttonProximoActionPerformed(evt);
-			}
-		});
-
 		txtDataNasc.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 		txtDataNasc.setBorder(javax.swing.BorderFactory.createTitledBorder("DATA DE NASCIMENTO"));
 
-		txtEndereco.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-		txtEndereco.setBorder(javax.swing.BorderFactory.createTitledBorder("ENDEREÇO"));
+		txtDDD.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+		txtDDD.setBorder(javax.swing.BorderFactory.createTitledBorder("DDD"));
 
-		txtSenha.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-		txtSenha.setBorder(javax.swing.BorderFactory.createTitledBorder("CPF ATENDENTE"));
+		txtRua.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+		txtRua.setBorder(javax.swing.BorderFactory.createTitledBorder("RUA"));
 
 		txtEmail.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 		txtEmail.setBorder(javax.swing.BorderFactory.createTitledBorder("EMAIL"));
@@ -87,132 +77,184 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
 		txtTelefone.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 		txtTelefone.setBorder(javax.swing.BorderFactory.createTitledBorder("TELEFONE"));
 
-		javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-		jPanel1.setLayout(jPanel1Layout);
-		jPanel1Layout.setHorizontalGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGroup(jPanel1Layout.createSequentialGroup().addGap(61, 61, 61)
-						.addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-								.addGroup(jPanel1Layout.createSequentialGroup().addGap(11, 11, 11).addComponent(icon)
-										.addGap(49, 49, 49).addComponent(jLabelCadastrarClienteTXT))
-								.addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-										.addComponent(txtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 394,
-												javax.swing.GroupLayout.PREFERRED_SIZE)
-										.addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 394,
-												javax.swing.GroupLayout.PREFERRED_SIZE)
-										.addComponent(txtDataNasc, javax.swing.GroupLayout.PREFERRED_SIZE, 394,
-												javax.swing.GroupLayout.PREFERRED_SIZE)
-										.addComponent(buttonCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 120,
-												javax.swing.GroupLayout.PREFERRED_SIZE)
-										.addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 394,
-												javax.swing.GroupLayout.PREFERRED_SIZE)
-										.addComponent(txtEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 394,
-												javax.swing.GroupLayout.PREFERRED_SIZE)
-										.addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 394,
-												javax.swing.GroupLayout.PREFERRED_SIZE)
-										.addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 394,
-												javax.swing.GroupLayout.PREFERRED_SIZE))
-								.addComponent(buttonRestaurar, javax.swing.GroupLayout.PREFERRED_SIZE, 120,
-										javax.swing.GroupLayout.PREFERRED_SIZE))
-						.addContainerGap(60, Short.MAX_VALUE)));
-		jPanel1Layout
-				.setVerticalGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-						.addGroup(jPanel1Layout.createSequentialGroup().addGap(19, 19, 19)
-								.addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-										.addComponent(jLabelCadastrarClienteTXT, javax.swing.GroupLayout.PREFERRED_SIZE, 40,
-												javax.swing.GroupLayout.PREFERRED_SIZE)
-										.addComponent(icon))
-								.addGap(63, 63, 63)
-								.addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 34,
-										javax.swing.GroupLayout.PREFERRED_SIZE)
-								.addGap(18, 18, 18)
-								.addComponent(txtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 34,
-										javax.swing.GroupLayout.PREFERRED_SIZE)
-								.addGap(17, 17, 17)
-								.addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 34,
-										javax.swing.GroupLayout.PREFERRED_SIZE)
-								.addGap(18, 18, 18)
-								.addComponent(txtDataNasc, javax.swing.GroupLayout.PREFERRED_SIZE, 34,
-										javax.swing.GroupLayout.PREFERRED_SIZE)
-								.addGap(18, 18, 18)
-								.addComponent(txtEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 34,
-										javax.swing.GroupLayout.PREFERRED_SIZE)
-								.addGap(18, 18, 18)
-								.addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 34,
-										javax.swing.GroupLayout.PREFERRED_SIZE)
-								.addGap(18, 18, 18)
-								.addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 34,
-										javax.swing.GroupLayout.PREFERRED_SIZE)
-								.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50,
-										Short.MAX_VALUE)
-								.addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-										.addComponent(buttonCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 29,
-												javax.swing.GroupLayout.PREFERRED_SIZE)
-										.addComponent(buttonRestaurar, javax.swing.GroupLayout.PREFERRED_SIZE, 29,
-												javax.swing.GroupLayout.PREFERRED_SIZE))
-								.addGap(28, 28, 28)));
+		txtNumero.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+		txtNumero.setBorder(javax.swing.BorderFactory.createTitledBorder("NÚMERO"));
+
+		txtBairro.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+		txtBairro.setBorder(javax.swing.BorderFactory.createTitledBorder("BAIRRO"));
+
+		txtCEP.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+		txtCEP.setBorder(javax.swing.BorderFactory.createTitledBorder("CEP"));
+
+		txtComplemento.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+		txtComplemento.setBorder(javax.swing.BorderFactory.createTitledBorder("COMPLEMENTO"));
+
+		txtSenha.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+		txtSenha.setBorder(javax.swing.BorderFactory.createTitledBorder("SENHA"));
+
+		txtConfirmarSenha.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+		txtConfirmarSenha.setBorder(javax.swing.BorderFactory.createTitledBorder("CONFIRMAR SENHA"));
+
+		buttonRestaurar.setFont(new java.awt.Font("Code Light", 0, 11));
+		buttonRestaurar.setText("LIMPAR");
+		buttonRestaurar.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				buttonRestaurarActionPerformed(evt);
+			}
+		});
+
+		buttonCadastrar.setFont(new java.awt.Font("Code Light", 0, 11));
+		buttonCadastrar.setText("CADASTRAR");
+		buttonCadastrar.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				buttonCadastrarActionPerformed(evt);
+			}
+		});
+
+		javax.swing.GroupLayout gl_jPane = new javax.swing.GroupLayout(jPane);
+		gl_jPane.setHorizontalGroup(gl_jPane.createParallelGroup(Alignment.LEADING).addGroup(gl_jPane
+				.createSequentialGroup().addGap(61)
+				.addGroup(gl_jPane.createParallelGroup(Alignment.LEADING).addGroup(gl_jPane
+						.createSequentialGroup()
+						.addGroup(gl_jPane.createParallelGroup(Alignment.TRAILING)
+								.addComponent(txtCpf, GroupLayout.PREFERRED_SIZE, 394, GroupLayout.PREFERRED_SIZE)
+								.addComponent(txtNome, GroupLayout.PREFERRED_SIZE, 394, GroupLayout.PREFERRED_SIZE)
+								.addComponent(buttonCadastrar, GroupLayout.PREFERRED_SIZE, 120,
+										GroupLayout.PREFERRED_SIZE)
+								.addComponent(txtEmail, GroupLayout.PREFERRED_SIZE, 394, GroupLayout.PREFERRED_SIZE)
+								.addGroup(gl_jPane.createParallelGroup(Alignment.LEADING, false)
+										.addGroup(gl_jPane.createSequentialGroup()
+												.addComponent(txtDDD, GroupLayout.PREFERRED_SIZE, 114,
+														GroupLayout.PREFERRED_SIZE)
+												.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE,
+														Short.MAX_VALUE)
+												.addComponent(txtTelefone, GroupLayout.PREFERRED_SIZE, 252,
+														GroupLayout.PREFERRED_SIZE))
+										.addComponent(txtDataNasc, Alignment.TRAILING, GroupLayout.PREFERRED_SIZE, 394,
+												GroupLayout.PREFERRED_SIZE)))
+						.addGap(58)
+						.addGroup(gl_jPane.createParallelGroup(Alignment.TRAILING)
+								.addComponent(txtConfirmarSenha, GroupLayout.DEFAULT_SIZE, 365, Short.MAX_VALUE)
+								.addComponent(txtSenha, 365, 365, Short.MAX_VALUE)
+								.addGroup(Alignment.LEADING, gl_jPane.createSequentialGroup()
+										.addComponent(txtNumero, GroupLayout.PREFERRED_SIZE, 83,
+												GroupLayout.PREFERRED_SIZE)
+										.addGap(18).addComponent(txtRua, GroupLayout.PREFERRED_SIZE, 264,
+												GroupLayout.PREFERRED_SIZE))
+								.addComponent(txtBairro, 365, 365, Short.MAX_VALUE)
+								.addGroup(gl_jPane.createSequentialGroup()
+										.addComponent(txtCEP, GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE).addGap(18)
+										.addComponent(txtComplemento, GroupLayout.PREFERRED_SIZE, 227,
+												GroupLayout.PREFERRED_SIZE)))
+						.addGap(38))
+						.addGroup(gl_jPane.createSequentialGroup()
+								.addGroup(gl_jPane.createParallelGroup(Alignment.LEADING)
+										.addGroup(gl_jPane.createSequentialGroup().addGap(11).addComponent(icon)
+												.addGap(49).addComponent(jLabelCadastrarClienteTXT))
+										.addComponent(buttonRestaurar, GroupLayout.PREFERRED_SIZE, 120,
+												GroupLayout.PREFERRED_SIZE))
+								.addContainerGap(587, Short.MAX_VALUE)))));
+		gl_jPane.setVerticalGroup(gl_jPane.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_jPane.createSequentialGroup().addGap(19)
+						.addGroup(gl_jPane.createParallelGroup(Alignment.TRAILING)
+								.addComponent(jLabelCadastrarClienteTXT, GroupLayout.PREFERRED_SIZE, 40,
+										GroupLayout.PREFERRED_SIZE)
+								.addComponent(icon))
+						.addGap(63)
+						.addGroup(gl_jPane.createParallelGroup(Alignment.BASELINE)
+								.addComponent(txtNome, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
+								.addComponent(txtRua, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
+								.addComponent(txtNumero, GroupLayout.PREFERRED_SIZE, 33, GroupLayout.PREFERRED_SIZE))
+						.addGap(18)
+						.addGroup(gl_jPane.createParallelGroup(Alignment.LEADING)
+								.addComponent(txtCpf, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
+								.addComponent(txtBairro, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+										GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_jPane.createParallelGroup(Alignment.LEADING)
+								.addGroup(gl_jPane.createSequentialGroup().addGap(18).addComponent(
+										txtComplemento, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+										GroupLayout.PREFERRED_SIZE))
+								.addGroup(gl_jPane.createSequentialGroup().addGap(17)
+										.addGroup(
+												gl_jPane.createParallelGroup(Alignment.LEADING)
+														.addComponent(txtCEP, GroupLayout.PREFERRED_SIZE,
+																GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+														.addComponent(
+																txtEmail, GroupLayout.PREFERRED_SIZE, 34,
+																GroupLayout.PREFERRED_SIZE))))
+						.addGap(18)
+						.addGroup(gl_jPane.createParallelGroup(Alignment.LEADING).addGroup(gl_jPane
+								.createSequentialGroup()
+								.addComponent(txtDataNasc, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
+								.addPreferredGap(ComponentPlacement.UNRELATED)
+								.addGroup(gl_jPane.createParallelGroup(Alignment.BASELINE)
+										.addComponent(txtTelefone, GroupLayout.PREFERRED_SIZE, 34,
+												GroupLayout.PREFERRED_SIZE)
+										.addComponent(txtDDD, GroupLayout.PREFERRED_SIZE, 34,
+												GroupLayout.PREFERRED_SIZE))
+								.addPreferredGap(ComponentPlacement.RELATED, 178, Short.MAX_VALUE)
+								.addGroup(gl_jPane.createParallelGroup(Alignment.BASELINE)
+										.addComponent(buttonCadastrar, GroupLayout.PREFERRED_SIZE, 29,
+												GroupLayout.PREFERRED_SIZE)
+										.addComponent(buttonRestaurar, GroupLayout.PREFERRED_SIZE, 29,
+												GroupLayout.PREFERRED_SIZE))
+								.addGap(28)).addGroup(
+										gl_jPane.createSequentialGroup()
+												.addComponent(txtSenha, GroupLayout.PREFERRED_SIZE,
+														GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+												.addPreferredGap(ComponentPlacement.RELATED)
+												.addComponent(txtConfirmarSenha, GroupLayout.PREFERRED_SIZE,
+														GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+												.addContainerGap()))));
+		jPane.setLayout(gl_jPane);
 
 		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-		getContentPane().setLayout(layout);
-		layout.setHorizontalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addComponent(
-				jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE,
-				javax.swing.GroupLayout.PREFERRED_SIZE));
-		layout.setVerticalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+		layout.setHorizontalGroup(layout.createParallelGroup(Alignment.LEADING)
 				.addGroup(layout.createSequentialGroup()
-						.addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE,
-								javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-						.addGap(0, 0, Short.MAX_VALUE)));
+						.addComponent(jPane, GroupLayout.PREFERRED_SIZE, 916, GroupLayout.PREFERRED_SIZE)
+						.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
+		layout.setVerticalGroup(layout.createParallelGroup(Alignment.LEADING)
+				.addGroup(layout.createSequentialGroup()
+						.addComponent(jPane, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+								GroupLayout.PREFERRED_SIZE)
+						.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
+		getContentPane().setLayout(layout);
 
 		pack();
 		setLocationRelativeTo(null);
-	}// </editor-fold>//GEN-END:initComponents
+	}
 
-	private void txtUsuarioActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_txtUsuarioActionPerformed
-
-	}// GEN-LAST:event_txtUsuarioActionPerformed
-
-	private void buttonProximoActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_buttonProximoActionPerformed
-		// if(txtSenha.equals(txtCSenha)){
-		// JOptionPane.showMessageDialog(null, "Ok!");
-		// TelaLogin tl = new TelaLogin();
-		// tl.setVisible(true);
-		// dispose();
-		// }
-		if (Arrays.equals(txtSenha.getPassword(), txtCSenha.getPassword())) {
-			JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso");
-			TelaCriarConta TL = new TelaCriarConta();
-			TL.setVisible(true);
-
-			// }else{
-			// JOptionPane.showMessageDialog(null, "Senhas não conferem!", "Atenção",
-			// JOptionPane.WARNING_MESSAGE);
-			// }
-		} else {
-			JOptionPane.showMessageDialog(null, "As suas senhas não estão iguais!");
-			txtCSenha.setText("");
-			txtSenha.setText("");
+	private void buttonCadastrarActionPerformed(java.awt.event.ActionEvent evt) {
+		if (txtCpf.getText().isEmpty() || txtNome.getText().isEmpty() || txtEmail.getText().isEmpty()
+				|| txtSenha.getText().isEmpty() || txtDDD.getText().isEmpty() || txtTelefone.getText().isEmpty()
+				|| txtDataNasc.getText().isEmpty() || txtNumero.getText().isEmpty() || txtRua.getText().isEmpty()
+				|| txtBairro.getText().isEmpty() || txtComplemento.getText().isEmpty() || txtCEP.getText().isEmpty()) {
+			JOptionPane.showMessageDialog(null, "Cmpos Vazios!");
 		}
-	}// GEN-LAST:event_buttonProximoActionPerformed
+		ClienteController.cadastraCliente(txtCpf.getText(), txtNome.getText(), txtEmail.getText(), txtSenha.getText(),
+				txtDDD.getText(), txtTelefone.getText(), txtDataNasc.getText(), txtNumero.getText(), txtRua.getText(),
+				txtBairro.getText(), txtComplemento.getText(), txtCEP.getText());
+	}
 
-	private void buttonRestaurarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_buttonRestaurarActionPerformed
+	private void buttonRestaurarActionPerformed(java.awt.event.ActionEvent evt) {
 		txtNome.setText("");
-		txtSenha.setText("");
 		txtCpf.setText("");
+		txtEmail.setText("");
+		txtDDD.setText("");
+		txtTelefone.setText("");
+		txtNumero.setText("");
+		txtRua.setText("");
+		txtBairro.setText("");
+		txtCEP.setText("");
+		txtComplemento.setText("");
+		txtSenha.setText("");
+		txtConfirmarSenha.setText("");
 		txtDataNasc.setText("");
-		txtCSenha.setText("");
-	}// GEN-LAST:event_buttonRestaurarActionPerformed
 
-	/**
-	 * @param args the command line arguments
-	 */
+	}
+
 	public static void main(String args[]) {
-		/* Set the Nimbus look and feel */
-		// <editor-fold defaultstate="collapsed" desc=" Look and feel setting code
-		// (optional) ">
-		/*
-		 * If Nimbus (introduced in Java SE 6) is not available, stay with the default
-		 * look and feel. For details see
-		 * http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
-		 */
+
 		try {
 			for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
 				if ("Nimbus".equals(info.getName())) {
@@ -233,10 +275,7 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
 			java.util.logging.Logger.getLogger(TelaCadastroCliente.class.getName()).log(java.util.logging.Level.SEVERE,
 					null, ex);
 		}
-		// </editor-fold>
-		// </editor-fold>
 
-		/* Create and display the form */
 		java.awt.EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				new TelaCadastroCliente().setVisible(true);
@@ -249,13 +288,19 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
 	private javax.swing.JButton buttonRestaurar;
 	private javax.swing.JLabel icon;
 	private javax.swing.JLabel jLabelCadastrarClienteTXT;
-	private javax.swing.JPanel jPanel1;
+	private javax.swing.JPanel jPane;
 	private javax.swing.JTextField txtDataNasc;
-	private javax.swing.JTextField txtEndereco;
-	private javax.swing.JTextField txtSenha;
+	private javax.swing.JTextField txtDDD;
+	private javax.swing.JTextField txtRua;
 	private javax.swing.JTextField txtTelefone;
 	private javax.swing.JTextField txtCpf;
 	private javax.swing.JTextField txtEmail;
 	private javax.swing.JTextField txtNome;
+	private JTextField txtNumero;
+	private JTextField txtBairro;
+	private JTextField txtCEP;
+	private JTextField txtComplemento;
+	private JPasswordField txtSenha;
+	private JPasswordField txtConfirmarSenha;
 	// End of variables declaration//GEN-END:variables
 }
