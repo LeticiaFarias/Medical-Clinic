@@ -24,7 +24,7 @@ public class ClienteController {
 	public static void cadastraCliente(String cpf, String nome, String email, String senha, int ddd, int numero,
 			Date dataAniver, String num, String rua, String bairro, String complemento, String cep) {
 
-		if (ValidaUtil.validaEmail(email) == false) {
+		if (ValidaUtil.validaEmail(email) == 0) {
 			if (ValidaUtil.validaCpf(cpf) == false) {
 
 				Cliente cliente = Atendente.cadastraCliente(cpf, nome, email, senha, ddd, numero, dataAniver, num, rua,
@@ -125,7 +125,7 @@ public class ClienteController {
 	}
 
 	public static void updateEmail(String newEmail, String email) {
-		if (ValidaUtil.validaEmail(newEmail) == false) {
+		if (ValidaUtil.validaEmail(newEmail) == 0) {
 
 			GenericJPA_DAO<Cliente> genericDao = new GenericJPA_DAO<Cliente>();
 

@@ -86,17 +86,17 @@ public class Medico {
 		this.especialidade = especialidade;
 	}
 
-	public static void loginMedico(String email, String senha) {
-		if (ValidaUtil.validaEmailMedico(email) == true) {
-			if (ValidaUtil.validaSenhaMedico(email, senha) == true) {
-				System.out.println("\nBem vindo!\n");
-			} else {
-				TextosUtil.senhaIncorreta();
-			}
-		} else {
-			TextosUtil.emailInexistente();
+	public static boolean loginMedico(String email, String senha) {
+		if (ValidaUtil.validaSenhaMedico(email, senha) == true) {
+			System.out.println("\nBem vindo!\n");
 
+			return true;
+		} else {
+			TextosUtil.senhaIncorreta();
+
+			return false;
 		}
+
 	}
 
 	@Override

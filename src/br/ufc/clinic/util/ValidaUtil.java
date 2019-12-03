@@ -65,16 +65,24 @@ public class ValidaUtil {
 		return false;
 	}
 
-	public static boolean validaEmail(String email) {
+	public static int validaEmail(String email) {
 		if (validaEmailAdm(email) == false) {
 			if (validaEmailAtendente(email) == false) {
-				if (validaEmailCliente(email) == false) {
-					return false;
+				if (validaEmailMedico(email) == false) {
+					if (validaEmailCliente(email) == false) {
+						return 0;
+					} else {
+						return 4;
+					}
+				} else {
+					return 3;
 				}
+			} else {
+				return 2;
 			}
+		} else {
+			return 1;
 		}
-
-		return true;
 	}
 
 	// ---------- Validações de Senha ----------//

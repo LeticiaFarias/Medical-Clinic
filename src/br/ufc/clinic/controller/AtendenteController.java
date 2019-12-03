@@ -18,7 +18,7 @@ public class AtendenteController {
 	public static void cadastraAtendente(String cpf, String nome, String email, String senha) {
 
 		if (ValidaUtil.validaCpfAtendente(cpf) == false) {
-			if (ValidaUtil.validaEmail(email) == false) {
+			if (ValidaUtil.validaEmail(email) == 0) {
 				String senhaCriptografada = ValidaUtil.criptografaSenha(senha);
 
 				Atendente atendente = new Atendente(0, cpf, nome, email, senhaCriptografada);
@@ -146,8 +146,8 @@ public class AtendenteController {
 
 	}
 
-	public static void login(String email, String senha) {
-		Atendente.loginAtendente(email, senha);
+	public static boolean login(String email, String senha) {
+		return Atendente.loginAtendente(email, senha);
 	}
 
 }

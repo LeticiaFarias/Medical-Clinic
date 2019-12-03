@@ -17,7 +17,7 @@ public class AdministradorController {
 
 	public static void cadastraAdm(int id, String nome, String email, String senha) {
 
-		if (ValidaUtil.validaEmail(email) == false) {
+		if (ValidaUtil.validaEmail(email) == 0) {
 			String senhaCriptografada = ValidaUtil.criptografaSenha(senha);
 
 			Administrador administrador = new Administrador(id, nome, email, senhaCriptografada);
