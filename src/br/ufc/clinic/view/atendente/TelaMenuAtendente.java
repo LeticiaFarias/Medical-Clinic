@@ -1,20 +1,21 @@
 package br.ufc.clinic.view.atendente;
 
-import javax.swing.JOptionPane;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.GroupLayout;
 import javax.swing.LayoutStyle.ComponentPlacement;
 
+import br.ufc.clinic.view.agenda.TelaAgenda;
 import br.ufc.clinic.view.cliente.TelaCadastroCliente;
+import br.ufc.clinic.view.medico.TelaCadastroMedico;
+import br.ufc.clinic.view.telasIniciais.TelaLogin;
 
 public class TelaMenuAtendente extends javax.swing.JFrame {
+	private static final long serialVersionUID = 1L;
+
 	public TelaMenuAtendente() {
 		initComponents();
 	}
 
-	@SuppressWarnings("unchecked")
-	// <editor-fold defaultstate="collapsed" desc="Generated
-	// Code">//GEN-BEGIN:initComponents
 	private void initComponents() {
 
 		jLabel1 = new javax.swing.JLabel();
@@ -54,7 +55,7 @@ public class TelaMenuAtendente extends javax.swing.JFrame {
 		// NOI18N
 
 		jButtonPesquisarCliente.setBackground(new java.awt.Color(255, 255, 255));
-		jButtonPesquisarCliente.setFont(new java.awt.Font("Code Light", 0, 11)); // NOI18N
+		jButtonPesquisarCliente.setFont(new java.awt.Font("Code Light", 0, 11));
 		jButtonPesquisarCliente.setText("PESQUISAR cliente");
 		jButtonPesquisarCliente
 				.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -64,43 +65,46 @@ public class TelaMenuAtendente extends javax.swing.JFrame {
 			}
 		});
 
-		jLabel2.setFont(new java.awt.Font("Code Light", 0, 24)); // NOI18N
+		jLabel2.setFont(new java.awt.Font("Code Light", 0, 24));
 		jLabel2.setForeground(new java.awt.Color(0, 0, 51));
 		jLabel2.setText("menu Atendente");
 
 		jButtonCadastrarMedico.setBackground(new java.awt.Color(255, 255, 255));
-		jButtonCadastrarMedico.setFont(new java.awt.Font("Code Light", 0, 11)); // NOI18N
+		jButtonCadastrarMedico.setFont(new java.awt.Font("Code Light", 0, 11));
 		jButtonCadastrarMedico.setText(" cadastrar medico");
 		jButtonCadastrarMedico.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 		jButtonCadastrarMedico.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				jButton2ActionPerformed(evt);
+				jButtonCadastrarMedicoActionPerformed(evt);
 			}
 		});
 
 		jButtonAgenda.setBackground(new java.awt.Color(255, 255, 255));
-		jButtonAgenda.setFont(new java.awt.Font("Code Light", 0, 11)); // NOI18N
+		jButtonAgenda.setFont(new java.awt.Font("Code Light", 0, 11));
 		jButtonAgenda.setText("AGENDA");
 		jButtonAgenda.setActionCommand("");
 		jButtonAgenda.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 		jButtonAgenda.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				jButton4ActionPerformed(evt);
+				jButtonAgendaActionPerformed(evt);
 			}
 		});
 
 		jButton5.setBackground(new java.awt.Color(255, 255, 255));
-		jButton5.setFont(new java.awt.Font("Code Light", 0, 11)); // NOI18N
+		jButton5.setFont(new java.awt.Font("Code Light", 0, 11));
 		jButton5.setText("SAIR");
 		jButton5.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 		jButton5.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				jButton5ActionPerformed(evt);
+				TelaLogin telaLogin = new TelaLogin();
+				telaLogin.setVisible(true);
+
+				dispose();
 			}
 		});
 
 		jButtonPesquisarMedico.setBackground(new java.awt.Color(255, 255, 255));
-		jButtonPesquisarMedico.setFont(new java.awt.Font("Code Light", 0, 11)); // NOI18N
+		jButtonPesquisarMedico.setFont(new java.awt.Font("Code Light", 0, 11));
 		jButtonPesquisarMedico.setText("PESQUISAR medico");
 		jButtonPesquisarMedico.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 		jButtonPesquisarMedico.addActionListener(new java.awt.event.ActionListener() {
@@ -110,7 +114,7 @@ public class TelaMenuAtendente extends javax.swing.JFrame {
 		});
 
 		jButtonCadastrarCliente.setBackground(new java.awt.Color(255, 255, 255));
-		jButtonCadastrarCliente.setFont(new java.awt.Font("Code Light", 0, 11)); // NOI18N
+		jButtonCadastrarCliente.setFont(new java.awt.Font("Code Light", 0, 11));
 		jButtonCadastrarCliente.setText("CADASTRAR cliente");
 		jButtonCadastrarCliente
 				.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -184,31 +188,15 @@ public class TelaMenuAtendente extends javax.swing.JFrame {
 		setLocationRelativeTo(null);
 	}// </editor-fold>//GEN-END:initComponents
 
-	private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton1ActionPerformed
+	private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
 		TelaCadastroAtedente tc = new TelaCadastroAtedente();
 		tc.setVisible(true);
-		dispose();
-	}// GEN-LAST:event_jButton1ActionPerformed
+	}
 
-	private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton2ActionPerformed
-		// TODO add your handling code here:
-	}// GEN-LAST:event_jButton2ActionPerformed
-
-	private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton3ActionPerformed
-		// TODO add your handling code here:
-	}// GEN-LAST:event_jButton3ActionPerformed
-
-	private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton4ActionPerformed
-		// TODO add your handling code here:
-	}// GEN-LAST:event_jButton4ActionPerformed
-
-	private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton5ActionPerformed
-		dispose();
-	}// GEN-LAST:event_jButton5ActionPerformed
-
-	private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton6ActionPerformed
-		// TODO add your handling code here:
-	}// GEN-LAST:event_jButton6ActionPerformed
+	private void jButtonCadastrarMedicoActionPerformed(java.awt.event.ActionEvent evt) {
+		TelaCadastroMedico telaCadastroMedico = new TelaCadastroMedico();
+		telaCadastroMedico.setVisible(true);
+	}
 
 	private void jButtonCadastrarClienteActionPerformed(java.awt.event.ActionEvent evt) {
 		TelaCadastroCliente telaCadastroCliente = new TelaCadastroCliente();
@@ -217,14 +205,20 @@ public class TelaMenuAtendente extends javax.swing.JFrame {
 		dispose();
 	}
 
+	private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {
+
+	}
+
+	private void jButtonAgendaActionPerformed(java.awt.event.ActionEvent evt) {
+		TelaAgenda telaAgenda = new TelaAgenda();
+		telaAgenda.setVisible(true);
+	}
+
+	private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {
+
+	}
+
 	public static void main(String args[]) {
-		// <editor-fold defaultstate="collapsed" desc=" Look and feel setting code
-		// (optional) ">
-		/*
-		 * If Nimbus (introduced in Java SE 6) is not available, stay with the default
-		 * look and feel. For details see
-		 * http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
-		 */
 		try {
 			for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
 				if ("Nimbus".equals(info.getName())) {
@@ -245,24 +239,7 @@ public class TelaMenuAtendente extends javax.swing.JFrame {
 			java.util.logging.Logger.getLogger(TelaMenuAtendente.class.getName()).log(java.util.logging.Level.SEVERE,
 					null, ex);
 		}
-		// </editor-fold>
-		// </editor-fold>
-		// </editor-fold>
-		// </editor-fold>
-		// </editor-fold>
-		// </editor-fold>
-		// </editor-fold>
-		// </editor-fold>
-		// </editor-fold>
-		// </editor-fold>
-		// </editor-fold>
-		// </editor-fold>
-		// </editor-fold>
-		// </editor-fold>
-		// </editor-fold>
-		// </editor-fold>
 
-		/* Create and display the form */
 		java.awt.EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				new TelaMenuAtendente().setVisible(true);
