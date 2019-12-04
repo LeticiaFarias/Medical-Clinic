@@ -26,6 +26,7 @@ public class TelaCadastroAdm extends javax.swing.JFrame {
 		jPanel1 = new javax.swing.JPanel();
 		icon = new javax.swing.JLabel();
 		jLabelCadastrarAdmTXT = new javax.swing.JLabel();
+		buttonVoltar = new javax.swing.JButton();
 		buttonRestaurar = new javax.swing.JButton();
 		buttonCadastrar = new javax.swing.JButton();
 		txtNome = new javax.swing.JTextField();
@@ -76,70 +77,61 @@ public class TelaCadastroAdm extends javax.swing.JFrame {
 				buttonCadastrarActionPerformed(evt);
 			}
 		});
-		buttonVoltar = new javax.swing.JButton();
 
+		
 		buttonVoltar.setFont(new java.awt.Font("Code Light", 0, 11));
 		buttonVoltar.setText("VOLTAR");
 		buttonVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				buttonVoltarActionPerformed(evt);
-			}
-		});
+				TelaCriarConta telaCriarConta = new TelaCriarConta();
+				telaCriarConta.setVisible(true);
 
-		buttonVoltar.setFont(new java.awt.Font("Code Light", 0, 11));
-		buttonVoltar.setText("VOLTAR");
-		buttonVoltar.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				buttonVoltarActionPerformed(evt);
+				dispose();
 			}
 		});
 
 		javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-		jPanel1Layout.setHorizontalGroup(
-			jPanel1Layout.createParallelGroup(Alignment.LEADING)
-				.addGroup(jPanel1Layout.createSequentialGroup()
-					.addGap(61)
-					.addGroup(jPanel1Layout.createParallelGroup(Alignment.LEADING)
-						.addGroup(jPanel1Layout.createSequentialGroup()
-							.addGap(11)
-							.addComponent(icon)
-							.addGap(49)
-							.addComponent(jLabelCadastrarAdmTXT))
+		jPanel1Layout.setHorizontalGroup(jPanel1Layout.createParallelGroup(Alignment.LEADING).addGroup(jPanel1Layout
+				.createSequentialGroup().addGap(61)
+				.addGroup(jPanel1Layout.createParallelGroup(Alignment.LEADING)
+						.addGroup(jPanel1Layout.createSequentialGroup().addGap(11).addComponent(icon).addGap(49)
+								.addComponent(jLabelCadastrarAdmTXT))
 						.addGroup(jPanel1Layout.createParallelGroup(Alignment.TRAILING, false)
-							.addComponent(txtNome, GroupLayout.PREFERRED_SIZE, 394, GroupLayout.PREFERRED_SIZE)
-							.addGroup(jPanel1Layout.createSequentialGroup()
-								.addComponent(buttonVoltar, GroupLayout.PREFERRED_SIZE, 91, GroupLayout.PREFERRED_SIZE)
-								.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-								.addComponent(buttonRestaurar, GroupLayout.PREFERRED_SIZE, 120, GroupLayout.PREFERRED_SIZE)
-								.addGap(26)
-								.addComponent(buttonCadastrar, GroupLayout.PREFERRED_SIZE, 120, GroupLayout.PREFERRED_SIZE))
-							.addComponent(txtConfirmarSenha, GroupLayout.PREFERRED_SIZE, 394, GroupLayout.PREFERRED_SIZE)
-							.addComponent(txtSenha, GroupLayout.PREFERRED_SIZE, 394, GroupLayout.PREFERRED_SIZE)
-							.addComponent(txtEmail, GroupLayout.PREFERRED_SIZE, 394, GroupLayout.PREFERRED_SIZE)))
-					.addContainerGap(60, Short.MAX_VALUE))
-		);
-		jPanel1Layout.setVerticalGroup(
-			jPanel1Layout.createParallelGroup(Alignment.LEADING)
-				.addGroup(jPanel1Layout.createSequentialGroup()
-					.addGap(19)
-					.addGroup(jPanel1Layout.createParallelGroup(Alignment.TRAILING)
-						.addComponent(jLabelCadastrarAdmTXT, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE)
-						.addComponent(icon))
-					.addGap(63)
-					.addComponent(txtNome, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
-					.addGap(28)
-					.addComponent(txtEmail, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
-					.addGap(28)
-					.addComponent(txtSenha, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
-					.addGap(27)
-					.addComponent(txtConfirmarSenha, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
-					.addGroup(jPanel1Layout.createParallelGroup(Alignment.BASELINE)
-						.addComponent(buttonVoltar, GroupLayout.PREFERRED_SIZE, 29, GroupLayout.PREFERRED_SIZE)
-						.addComponent(buttonCadastrar, GroupLayout.PREFERRED_SIZE, 29, GroupLayout.PREFERRED_SIZE)
-						.addComponent(buttonRestaurar, GroupLayout.PREFERRED_SIZE, 29, GroupLayout.PREFERRED_SIZE))
-					.addGap(28))
-		);
+								.addComponent(txtNome, GroupLayout.PREFERRED_SIZE, 394, GroupLayout.PREFERRED_SIZE)
+								.addGroup(jPanel1Layout.createSequentialGroup()
+										.addComponent(buttonVoltar, GroupLayout.PREFERRED_SIZE, 91,
+												GroupLayout.PREFERRED_SIZE)
+										.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE,
+												Short.MAX_VALUE)
+										.addComponent(buttonRestaurar, GroupLayout.PREFERRED_SIZE, 120,
+												GroupLayout.PREFERRED_SIZE)
+										.addGap(26).addComponent(buttonCadastrar, GroupLayout.PREFERRED_SIZE, 120,
+												GroupLayout.PREFERRED_SIZE))
+								.addComponent(txtConfirmarSenha, GroupLayout.PREFERRED_SIZE, 394,
+										GroupLayout.PREFERRED_SIZE)
+								.addComponent(txtSenha, GroupLayout.PREFERRED_SIZE, 394, GroupLayout.PREFERRED_SIZE)
+								.addComponent(txtEmail, GroupLayout.PREFERRED_SIZE, 394, GroupLayout.PREFERRED_SIZE)))
+				.addContainerGap(60, Short.MAX_VALUE)));
+		jPanel1Layout.setVerticalGroup(jPanel1Layout.createParallelGroup(Alignment.LEADING)
+				.addGroup(jPanel1Layout.createSequentialGroup().addGap(19)
+						.addGroup(jPanel1Layout.createParallelGroup(Alignment.TRAILING)
+								.addComponent(jLabelCadastrarAdmTXT, GroupLayout.PREFERRED_SIZE, 40,
+										GroupLayout.PREFERRED_SIZE)
+								.addComponent(icon))
+						.addGap(63).addComponent(txtNome, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
+						.addGap(28).addComponent(txtEmail, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
+						.addGap(28).addComponent(txtSenha, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
+						.addGap(27)
+						.addComponent(txtConfirmarSenha, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+								GroupLayout.PREFERRED_SIZE)
+						.addPreferredGap(ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
+						.addGroup(jPanel1Layout.createParallelGroup(Alignment.BASELINE)
+								.addComponent(buttonVoltar, GroupLayout.PREFERRED_SIZE, 29, GroupLayout.PREFERRED_SIZE)
+								.addComponent(buttonCadastrar, GroupLayout.PREFERRED_SIZE, 29,
+										GroupLayout.PREFERRED_SIZE)
+								.addComponent(buttonRestaurar, GroupLayout.PREFERRED_SIZE, 29,
+										GroupLayout.PREFERRED_SIZE))
+						.addGap(28)));
 		jPanel1.setLayout(jPanel1Layout);
 
 		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -155,13 +147,6 @@ public class TelaCadastroAdm extends javax.swing.JFrame {
 
 	}
 
-	private void buttonVoltarActionPerformed(java.awt.event.ActionEvent evt) {
-		TelaCriarConta telaCriarConta = new TelaCriarConta();
-		telaCriarConta.setVisible(true);
-
-		dispose();
-	}
-	// NOI18N
 	private void buttonRestaurarActionPerformed(java.awt.event.ActionEvent evt) {
 		txtNome.setText("");
 		txtEmail.setText("");

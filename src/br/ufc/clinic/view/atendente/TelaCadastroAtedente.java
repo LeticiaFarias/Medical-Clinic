@@ -5,6 +5,7 @@ import java.util.Arrays;
 import javax.swing.JOptionPane;
 
 import br.ufc.clinic.controller.AtendenteController;
+import br.ufc.clinic.view.adm.TelaMenuAdm;
 import br.ufc.clinic.view.telasIniciais.TelaCriarConta;
 
 import javax.swing.GroupLayout.Alignment;
@@ -93,7 +94,10 @@ public class TelaCadastroAtedente extends javax.swing.JFrame {
 		buttonVoltar.setText("VOLTAR");
 		buttonVoltar.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				buttonVoltarActionPerformed(evt);
+				TelaMenuAdm telaMenuAdm = new TelaMenuAdm();
+				telaMenuAdm.setVisible(true);
+
+				dispose();
 			}
 		});
 

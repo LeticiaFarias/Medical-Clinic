@@ -45,7 +45,7 @@ public class TelaMenuAdm extends javax.swing.JFrame {
 		jButtonPesquisar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 		jButtonPesquisar.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				jButtonPesquisarActionPerformed(evt);
+
 			}
 		});
 
@@ -56,7 +56,7 @@ public class TelaMenuAdm extends javax.swing.JFrame {
 		jButtonConfiguracoes.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 		jButtonConfiguracoes.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				jButtonConfiguracoesActionPerformed(evt);
+
 			}
 		});
 
@@ -146,17 +146,11 @@ public class TelaMenuAdm extends javax.swing.JFrame {
 		setLocationRelativeTo(null);
 	}
 
-	private void jButtonPesquisarActionPerformed(java.awt.event.ActionEvent evt) {
-
-	}
-
-	private void jButtonConfiguracoesActionPerformed(java.awt.event.ActionEvent evt) {
-
-	}
-
 	private void jButtonCadastrarAtendenteActionPerformed(java.awt.event.ActionEvent evt) {
 		TelaCadastroAtedente telaCadastroAtedente = new TelaCadastroAtedente();
 		telaCadastroAtedente.setVisible(true);
+
+		dispose();
 	}
 
 	public static void main(String args[]) {

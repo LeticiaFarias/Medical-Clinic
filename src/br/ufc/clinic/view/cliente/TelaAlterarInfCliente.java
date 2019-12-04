@@ -1,4 +1,4 @@
-package br.ufc.clinic.view;
+package br.ufc.clinic.view.cliente;
 
 import java.util.List;
 
