@@ -1,11 +1,16 @@
 package br.ufc.clinic.view;
 
-import javax.swing.GroupLayout.Alignment;
+import java.util.List;
+
 import javax.swing.GroupLayout;
-import javax.swing.LayoutStyle.ComponentPlacement;
-import javax.swing.JTextField;
-import javax.swing.JPasswordField;
+import javax.swing.GroupLayout.Alignment;
 import javax.swing.JButton;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+import javax.swing.LayoutStyle.ComponentPlacement;
+
+import br.ufc.clinic.controller.AtendenteController;
+import br.ufc.clinic.model.Atendente;
 
 public class TelaAlterarInfCliente extends javax.swing.JFrame {
 	private static final long serialVersionUID = 1L;
@@ -49,7 +54,7 @@ public class TelaAlterarInfCliente extends javax.swing.JFrame {
 		txtNome.setBorder(javax.swing.BorderFactory.createTitledBorder("NOME"));
 		txtNome.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				txtUsuarioActionPerformed(evt);
+				txtUsuarioAlteraNomectionPerformed(evt);
 			}
 		});
 
@@ -254,8 +259,8 @@ public class TelaAlterarInfCliente extends javax.swing.JFrame {
 		setLocationRelativeTo(null);
 	}
 
-	private void txtUsuarioActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_txtUsuarioActionPerformed
-
+	private void txtUsuarioAlteraNomectionPerformed(java.awt.event.ActionEvent evt) {
+		
 	}
 
 	private void buttonProximoActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_buttonProximoActionPerformed
