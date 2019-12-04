@@ -149,5 +149,4 @@ public class AtendenteController {
 	public static boolean login(String email, String senha) {
 		return Atendente.loginAtendente(email, senha);
 	}
-
 }
