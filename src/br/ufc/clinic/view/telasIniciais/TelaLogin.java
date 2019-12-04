@@ -25,7 +25,7 @@ public class TelaLogin extends javax.swing.JFrame {
 	private void initComponents() {
 
 		setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-		setTitle("Acesso");
+		setTitle("I9Life");
 		setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
 		jPanel1 = new javax.swing.JPanel();
