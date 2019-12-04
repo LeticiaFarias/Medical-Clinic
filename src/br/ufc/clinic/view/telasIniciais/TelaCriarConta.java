@@ -1,8 +1,11 @@
-package br.ufc.clinic.view;
+package br.ufc.clinic.view.telasIniciais;
 
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.GroupLayout;
 import javax.swing.LayoutStyle.ComponentPlacement;
+
+import br.ufc.clinic.view.adm.TelaCadastroAdm;
+import br.ufc.clinic.view.medico.TelaCadastroMedico;
 
 public class TelaCriarConta extends javax.swing.JFrame {
 
@@ -48,7 +51,10 @@ public class TelaCriarConta extends javax.swing.JFrame {
 		jButtonADM.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 		jButtonADM.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				TelaCadastroAdm telaCadastroAdm = new TelaCadastroAdm();
+				telaCadastroAdm.setVisible(true);
 
+				dispose();
 			}
 		});
 

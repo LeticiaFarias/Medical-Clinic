@@ -1,9 +1,11 @@
-package br.ufc.clinic.view;
+package br.ufc.clinic.view.atendente;
 
 import javax.swing.JOptionPane;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.GroupLayout;
 import javax.swing.LayoutStyle.ComponentPlacement;
+
+import br.ufc.clinic.view.cliente.TelaCadastroCliente;
 
 public class TelaMenuAtendente extends javax.swing.JFrame {
 	public TelaMenuAtendente() {
@@ -114,7 +116,7 @@ public class TelaMenuAtendente extends javax.swing.JFrame {
 				.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 		jButtonCadastrarCliente.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				jButton7ActionPerformed(evt);
+				jButtonCadastrarClienteActionPerformed(evt);
 			}
 		});
 
@@ -208,9 +210,12 @@ public class TelaMenuAtendente extends javax.swing.JFrame {
 		// TODO add your handling code here:
 	}// GEN-LAST:event_jButton6ActionPerformed
 
-	private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton7ActionPerformed
-		// TODO add your handling code here:
-	}// GEN-LAST:event_jButton7ActionPerformed
+	private void jButtonCadastrarClienteActionPerformed(java.awt.event.ActionEvent evt) {
+		TelaCadastroCliente telaCadastroCliente = new TelaCadastroCliente();
+		telaCadastroCliente.setVisible(true);
+
+		dispose();
+	}
 
 	public static void main(String args[]) {
 		// <editor-fold defaultstate="collapsed" desc=" Look and feel setting code

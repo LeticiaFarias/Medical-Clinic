@@ -1,7 +1,10 @@
-package br.ufc.clinic.view;
+package br.ufc.clinic.view.medico;
 
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
+
+import br.ufc.clinic.view.telasIniciais.TelaLogin;
+
 import javax.swing.GroupLayout;
 import javax.swing.JButton;
 

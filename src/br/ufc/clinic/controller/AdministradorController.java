@@ -128,7 +128,7 @@ public class AdministradorController {
 
 	}
 
-	public static void login(String email, String senha) {
-		Administrador.loginAdm(email, senha);
+	public static boolean login(String email, String senha) {
+		return Administrador.loginAdm(email, senha);
 	}
 }

@@ -1,19 +1,21 @@
-package br.ufc.clinic.view;
+package br.ufc.clinic.view.telasIniciais;
 
 import javax.swing.JOptionPane;
 import javax.swing.GroupLayout.Alignment;
+import javax.swing.ImageIcon;
 import javax.swing.GroupLayout;
 import javax.swing.LayoutStyle.ComponentPlacement;
 
 import br.ufc.clinic.controller.AdministradorController;
 import br.ufc.clinic.controller.AtendenteController;
-import br.ufc.clinic.controller.ClienteController;
 import br.ufc.clinic.controller.MedicoController;
 import br.ufc.clinic.util.ValidaUtil;
+import br.ufc.clinic.view.adm.TelaMenuAdm;
+import br.ufc.clinic.view.atendente.TelaMenuAtendente;
+import br.ufc.clinic.view.medico.TelaMenuMedico;
 
 import javax.swing.JPopupMenu;
 import java.awt.Component;
-import javax.swing.JTextField;
 
 public class TelaLogin extends javax.swing.JFrame {
 	private static final long serialVersionUID = 1L;
@@ -29,6 +31,8 @@ public class TelaLogin extends javax.swing.JFrame {
 		buttonEntrar = new javax.swing.JButton();
 		bottonCadastro = new javax.swing.JButton();
 		txtLogin = new javax.swing.JTextField();
+		// ImageIcon iconFundo = new ImageIcon(getClass().getResource("logoppp.png"));
+		// jLabel4 = new javax.swing.JLabel(iconFundo);
 		txtSenha = new javax.swing.JPasswordField();
 
 		setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -37,9 +41,6 @@ public class TelaLogin extends javax.swing.JFrame {
 
 		jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 		jPanel1.setToolTipText("Acesso");
-
-		// jLabel4.setIcon(new
-		// javax.swing.ImageIcon(getClass().getResource("logoppp.png"))); // NOI18N
 
 		txtLogin.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 		txtLogin.setBorder(javax.swing.BorderFactory.createTitledBorder("LOGIN"));
@@ -121,43 +122,52 @@ public class TelaLogin extends javax.swing.JFrame {
 	}
 
 	private void buttonEntrarActionPerformed(java.awt.event.ActionEvent evt) {
-		if (ValidaUtil.validaEmail(txtLogin.getText()) == 1) {
-			// CHAMA TELA DE MENU DO ADMINISTRADOR
-
-		} else if (ValidaUtil.validaEmail(txtLogin.getText()) == 2) {
-			if (AtendenteController.login(txtLogin.getText(), txtSenha.getText()) == true) {
-				TelaMenuAtendente telaMenuAtendente = new TelaMenuAtendente();
-
-				telaMenuAtendente.setVisible(true);
-				dispose();
-			} else {
-				txtSenha.setText("");
-
-				JOptionPane.showMessageDialog(null, "Senha incorreta!");
-			}
-
-		} else if (ValidaUtil.validaEmail(txtLogin.getText()) == 3) {
-			if (MedicoController.login(txtLogin.getText(), txtSenha.getText()) == true) {
-				TelaMenuMedico telaMenuMedico = new TelaMenuMedico();
-
-				telaMenuMedico.setVisible(true);
-				dispose();
-			} else {
-				txtSenha.setText("");
-
-				JOptionPane.showMessageDialog(null, "Senha incorreta!");
-			}
-
-		} else if (ValidaUtil.validaEmail(txtLogin.getText()) == 4) {
-			// chama a tela menu cliente;
-		} else if (ValidaUtil.validaEmail(txtLogin.getText()) == 0) {
-			txtLogin.setText("");
-			JOptionPane.showMessageDialog(null, "Email incorreto!");
+		if (txtLogin.getText().isEmpty() || txtSenha.getText().isEmpty()) {
+			JOptionPane.showMessageDialog(null, "Campos vazios!");
 		} else {
-			restaurar();
+			if (ValidaUtil.validaEmail(txtLogin.getText()) == 1) {
+				if (AdministradorController.login(txtLogin.getText(), txtSenha.getText()) == true) {
+					TelaMenuAdm telaMenuAdm = new TelaMenuAdm();
 
-			JOptionPane.showMessageDialog(null,
-					"Ocorreu um erro inesperado ao realizar login.\nPor favor, tente novamente.");
+					telaMenuAdm.setVisible(true);
+					dispose();
+				}
+
+			} else if (ValidaUtil.validaEmail(txtLogin.getText()) == 2) {
+				if (AtendenteController.login(txtLogin.getText(), txtSenha.getText()) == true) {
+					TelaMenuAtendente telaMenuAtendente = new TelaMenuAtendente();
+
+					telaMenuAtendente.setVisible(true);
+					dispose();
+				} else {
+					txtSenha.setText("");
+
+					JOptionPane.showMessageDialog(null, "Senha incorreta!");
+				}
+
+			} else if (ValidaUtil.validaEmail(txtLogin.getText()) == 3) {
+				if (MedicoController.login(txtLogin.getText(), txtSenha.getText()) == true) {
+					TelaMenuMedico telaMenuMedico = new TelaMenuMedico();
+
+					telaMenuMedico.setVisible(true);
+					dispose();
+				} else {
+					txtSenha.setText("");
+
+					JOptionPane.showMessageDialog(null, "Senha incorreta!");
+				}
+
+			} else if (ValidaUtil.validaEmail(txtLogin.getText()) == 4) {
+				// chama a tela menu cliente;
+			} else if (ValidaUtil.validaEmail(txtLogin.getText()) == 0) {
+				txtLogin.setText("");
+				JOptionPane.showMessageDialog(null, "Email incorreto!");
+			} else {
+				restaurar();
+
+				JOptionPane.showMessageDialog(null,
+						"Ocorreu um erro inesperado ao realizar login.\nPor favor, tente novamente.");
+			}
 		}
 	}
 

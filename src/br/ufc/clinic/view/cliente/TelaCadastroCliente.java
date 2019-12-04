@@ -1,19 +1,21 @@
+package br.ufc.clinic.view.cliente;
 
-package br.ufc.clinic.view;
+import java.util.Calendar;
 
-import java.util.Arrays;
 import javax.swing.JOptionPane;
 
 import br.ufc.clinic.controller.ClienteController;
-import br.ufc.clinic.view.TelaCriarConta;
+
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.GroupLayout;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
+import javax.swing.JFormattedTextField;
 
 public class TelaCadastroCliente extends javax.swing.JFrame {
 	private static final long serialVersionUID = 1L;
+	static JFormattedTextField formatTxtDataNasc;
 
 	public TelaCadastroCliente() {
 		initComponents();
@@ -28,7 +30,7 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
 		buttonCadastrar = new javax.swing.JButton();
 		txtNome = new javax.swing.JTextField();
 		txtCpf = new javax.swing.JTextField();
-		txtDataNasc = new javax.swing.JTextField();
+		formatTxtDataNasc = new javax.swing.JFormattedTextField();
 		txtDDD = new javax.swing.JTextField();
 		txtRua = new javax.swing.JTextField();
 		txtEmail = new javax.swing.JTextField();
@@ -62,8 +64,9 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
 		txtCpf.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 		txtCpf.setBorder(javax.swing.BorderFactory.createTitledBorder("CPF"));
 
-		txtDataNasc.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-		txtDataNasc.setBorder(javax.swing.BorderFactory.createTitledBorder("DATA DE NASCIMENTO"));
+		formatTxtDataNasc.setText((Calendar.DAY_OF_MONTH + "/" + (Calendar.MONTH) + 1) + "/" + (Calendar.YEAR));
+		formatTxtDataNasc.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+		formatTxtDataNasc.setBorder(javax.swing.BorderFactory.createTitledBorder("DATA DE NASCIMENTO"));
 
 		txtDDD.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 		txtDDD.setBorder(javax.swing.BorderFactory.createTitledBorder("DDD"));
@@ -115,28 +118,25 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
 		gl_jPane.setHorizontalGroup(gl_jPane.createParallelGroup(Alignment.LEADING).addGroup(gl_jPane
 				.createSequentialGroup().addGap(61)
 				.addGroup(gl_jPane.createParallelGroup(Alignment.LEADING).addGroup(gl_jPane
-						.createSequentialGroup()
-						.addGroup(gl_jPane.createParallelGroup(Alignment.TRAILING)
-								.addComponent(txtCpf, GroupLayout.PREFERRED_SIZE, 394, GroupLayout.PREFERRED_SIZE)
-								.addComponent(txtNome, GroupLayout.PREFERRED_SIZE, 394, GroupLayout.PREFERRED_SIZE)
-								.addComponent(buttonCadastrar, GroupLayout.PREFERRED_SIZE, 120,
+						.createSequentialGroup().addGroup(gl_jPane.createParallelGroup(Alignment.LEADING)
+								.addComponent(formatTxtDataNasc, GroupLayout.DEFAULT_SIZE, 394, Short.MAX_VALUE)
+								.addComponent(txtCpf, GroupLayout.DEFAULT_SIZE, 394, Short.MAX_VALUE)
+								.addComponent(txtNome, GroupLayout.DEFAULT_SIZE, 394, Short.MAX_VALUE)
+								.addComponent(buttonCadastrar, Alignment.TRAILING, GroupLayout.PREFERRED_SIZE, 120,
 										GroupLayout.PREFERRED_SIZE)
-								.addComponent(txtEmail, GroupLayout.PREFERRED_SIZE, 394, GroupLayout.PREFERRED_SIZE)
-								.addGroup(gl_jPane.createParallelGroup(Alignment.LEADING, false)
-										.addGroup(gl_jPane.createSequentialGroup()
-												.addComponent(txtDDD, GroupLayout.PREFERRED_SIZE, 114,
-														GroupLayout.PREFERRED_SIZE)
-												.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE,
-														Short.MAX_VALUE)
-												.addComponent(txtTelefone, GroupLayout.PREFERRED_SIZE, 252,
-														GroupLayout.PREFERRED_SIZE))
-										.addComponent(txtDataNasc, Alignment.TRAILING, GroupLayout.PREFERRED_SIZE, 394,
+								.addComponent(txtEmail, GroupLayout.DEFAULT_SIZE, 394, Short.MAX_VALUE)
+								.addGroup(Alignment.TRAILING, gl_jPane.createSequentialGroup()
+										.addComponent(txtDDD, GroupLayout.PREFERRED_SIZE, 114,
+												GroupLayout.PREFERRED_SIZE)
+										.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE,
+												Short.MAX_VALUE)
+										.addComponent(txtTelefone, GroupLayout.PREFERRED_SIZE, 252,
 												GroupLayout.PREFERRED_SIZE)))
 						.addGap(58)
-						.addGroup(gl_jPane.createParallelGroup(Alignment.TRAILING)
+						.addGroup(gl_jPane.createParallelGroup(Alignment.LEADING)
 								.addComponent(txtConfirmarSenha, GroupLayout.DEFAULT_SIZE, 365, Short.MAX_VALUE)
 								.addComponent(txtSenha, 365, 365, Short.MAX_VALUE)
-								.addGroup(Alignment.LEADING, gl_jPane.createSequentialGroup()
+								.addGroup(gl_jPane.createSequentialGroup()
 										.addComponent(txtNumero, GroupLayout.PREFERRED_SIZE, 83,
 												GroupLayout.PREFERRED_SIZE)
 										.addGap(18).addComponent(txtRua, GroupLayout.PREFERRED_SIZE, 264,
@@ -184,15 +184,13 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
 																GroupLayout.PREFERRED_SIZE))))
 						.addGap(18)
 						.addGroup(gl_jPane.createParallelGroup(Alignment.LEADING).addGroup(gl_jPane
-								.createSequentialGroup()
-								.addComponent(txtDataNasc, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
-								.addPreferredGap(ComponentPlacement.UNRELATED)
+								.createSequentialGroup().addGap(46)
 								.addGroup(gl_jPane.createParallelGroup(Alignment.BASELINE)
 										.addComponent(txtTelefone, GroupLayout.PREFERRED_SIZE, 34,
 												GroupLayout.PREFERRED_SIZE)
 										.addComponent(txtDDD, GroupLayout.PREFERRED_SIZE, 34,
 												GroupLayout.PREFERRED_SIZE))
-								.addPreferredGap(ComponentPlacement.RELATED, 178, Short.MAX_VALUE)
+								.addPreferredGap(ComponentPlacement.RELATED, 196, Short.MAX_VALUE)
 								.addGroup(gl_jPane.createParallelGroup(Alignment.BASELINE)
 										.addComponent(buttonCadastrar, GroupLayout.PREFERRED_SIZE, 29,
 												GroupLayout.PREFERRED_SIZE)
@@ -205,7 +203,11 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
 												.addPreferredGap(ComponentPlacement.RELATED)
 												.addComponent(txtConfirmarSenha, GroupLayout.PREFERRED_SIZE,
 														GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-												.addContainerGap()))));
+												.addContainerGap())))
+				.addGroup(gl_jPane
+						.createSequentialGroup().addGap(280).addComponent(formatTxtDataNasc, GroupLayout.PREFERRED_SIZE,
+								GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addContainerGap(300, Short.MAX_VALUE)));
 		jPane.setLayout(gl_jPane);
 
 		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -224,16 +226,21 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
 		setLocationRelativeTo(null);
 	}
 
+	@SuppressWarnings("deprecation")
 	private void buttonCadastrarActionPerformed(java.awt.event.ActionEvent evt) {
 		if (txtCpf.getText().isEmpty() || txtNome.getText().isEmpty() || txtEmail.getText().isEmpty()
 				|| txtSenha.getText().isEmpty() || txtDDD.getText().isEmpty() || txtTelefone.getText().isEmpty()
-				|| txtDataNasc.getText().isEmpty() || txtNumero.getText().isEmpty() || txtRua.getText().isEmpty()
+				|| formatTxtDataNasc.getText().isEmpty() || txtNumero.getText().isEmpty() || txtRua.getText().isEmpty()
 				|| txtBairro.getText().isEmpty() || txtComplemento.getText().isEmpty() || txtCEP.getText().isEmpty()) {
 			JOptionPane.showMessageDialog(null, "Cmpos Vazios!");
+		} else {
+			ClienteController.cadastraCliente(txtCpf.getText(), txtNome.getText(), txtEmail.getText(),
+					txtSenha.getText(), txtDDD.getText(), txtTelefone.getText(), formatTxtDataNasc.getText(),
+					txtNumero.getText(), txtRua.getText(), txtBairro.getText(), txtComplemento.getText(),
+					txtCEP.getText());
+
+			buttonRestaurarActionPerformed(evt);
 		}
-		ClienteController.cadastraCliente(txtCpf.getText(), txtNome.getText(), txtEmail.getText(), txtSenha.getText(),
-				txtDDD.getText(), txtTelefone.getText(), txtDataNasc.getText(), txtNumero.getText(), txtRua.getText(),
-				txtBairro.getText(), txtComplemento.getText(), txtCEP.getText());
 	}
 
 	private void buttonRestaurarActionPerformed(java.awt.event.ActionEvent evt) {
@@ -249,7 +256,7 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
 		txtComplemento.setText("");
 		txtSenha.setText("");
 		txtConfirmarSenha.setText("");
-		txtDataNasc.setText("");
+		formatTxtDataNasc.setText("");
 
 	}
 
@@ -289,7 +296,6 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
 	private javax.swing.JLabel icon;
 	private javax.swing.JLabel jLabelCadastrarClienteTXT;
 	private javax.swing.JPanel jPane;
-	private javax.swing.JTextField txtDataNasc;
 	private javax.swing.JTextField txtDDD;
 	private javax.swing.JTextField txtRua;
 	private javax.swing.JTextField txtTelefone;
@@ -302,5 +308,4 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
 	private JTextField txtComplemento;
 	private JPasswordField txtSenha;
 	private JPasswordField txtConfirmarSenha;
-	// End of variables declaration//GEN-END:variables
 }
