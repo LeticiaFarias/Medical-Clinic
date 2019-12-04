@@ -13,7 +13,6 @@ import javax.persistence.Query;
 import br.ufc.clinic.dao.GenericJPA_DAO;
 import br.ufc.clinic.model.Atendente;
 import br.ufc.clinic.model.Cliente;
-import br.ufc.clinic.model.Cliente;
 import br.ufc.clinic.model.Endereco;
 import br.ufc.clinic.model.Telefone;
 import br.ufc.clinic.util.TextosUtil;
@@ -21,13 +20,14 @@ import br.ufc.clinic.util.ValidaUtil;
 
 public class ClienteController {
 
-	public static void cadastraCliente(String cpf, String nome, String email, String senha, int ddd, int numero,
-			Date dataAniver, String num, String rua, String bairro, String complemento, String cep) {
+	public static void cadastraCliente(String cpf, String nome, String email, String senha, String ddd, String numero,
+			String dataAniver, String num, String rua, String bairro, String complemento, String cep) {
 
 		if (ValidaUtil.validaEmail(email) == 0) {
-			if (ValidaUtil.validaCpf(cpf) == false) {
+			if (ValidaUtil.validaCpf(cpf) == true) {
 
-				Cliente cliente = Atendente.cadastraCliente(cpf, nome, email, senha, ddd, numero, dataAniver, num, rua,
+				Date data = (Date) TextosUtil.formatData(dataAniver);
+				Cliente cliente = Atendente.cadastraCliente(cpf, nome, email, senha, ddd, numero, data, num, rua,
 						bairro, complemento, cep);
 
 				try {

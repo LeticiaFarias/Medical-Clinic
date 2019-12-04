@@ -1,11 +1,12 @@
-package br.ufc.clinic.view;
+package br.ufc.clinic.view.atendente;
 
 import java.awt.event.ActionListener;
 import java.util.Arrays;
 import javax.swing.JOptionPane;
 
 import br.ufc.clinic.controller.AtendenteController;
-import br.ufc.clinic.view.TelaCriarConta;
+import br.ufc.clinic.view.telasIniciais.TelaCriarConta;
+
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.GroupLayout;
 import javax.swing.LayoutStyle.ComponentPlacement;

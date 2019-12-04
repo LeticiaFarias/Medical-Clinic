@@ -1,9 +1,10 @@
 
-package br.ufc.clinic.view;
+package br.ufc.clinic.view.agenda;
 
 import java.util.Arrays;
 import javax.swing.JOptionPane;
-import br.ufc.clinic.view.TelaCriarConta;
+
+import br.ufc.clinic.view.telasIniciais.TelaCriarConta;
 
 public class TelaAgenda extends javax.swing.JFrame {
 

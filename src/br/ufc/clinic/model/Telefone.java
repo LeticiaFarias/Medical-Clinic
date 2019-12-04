@@ -15,8 +15,8 @@ public class Telefone {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	private int ddd;
-	private int numero;
+	private String ddd;
+	private String numero;
 	@ManyToOne
 	@JoinColumn(name = "cliente_id")
 	private Cliente cliente;
@@ -25,7 +25,7 @@ public class Telefone {
 
 	}
 
-	public Telefone(int id, int ddd, int numero, Cliente cliente) {
+	public Telefone(int id, String ddd, String numero, Cliente cliente) {
 		super();
 		this.id = id;
 		this.ddd = ddd;
@@ -41,19 +41,19 @@ public class Telefone {
 		this.id = id;
 	}
 
-	public int getDdd() {
+	public String getDdd() {
 		return ddd;
 	}
 
-	public void setDdd(int ddd) {
+	public void setDdd(String ddd) {
 		this.ddd = ddd;
 	}
 
-	public int getNumero() {
+	public String getNumero() {
 		return numero;
 	}
 
-	public void setNumero(int numero) {
+	public void setNumero(String numero) {
 		this.numero = numero;
 	}
 

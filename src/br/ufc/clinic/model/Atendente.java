@@ -88,7 +88,7 @@ public class Atendente {
 
 	}
 
-	public static Cliente cadastraCliente(String cpf, String nome, String email, String senha, int ddd, int numero,
+	public static Cliente cadastraCliente(String cpf, String nome, String email, String senha, String ddd, String numero,
 			Date dataAniver, String num, String rua, String bairro, String complemento, String cep) {
 		String senhaCriptografada = ValidaUtil.criptografaSenha(senha);
 		Cliente cliente = new Cliente(0, cpf, nome, email, senhaCriptografada, null, null, dataAniver);
