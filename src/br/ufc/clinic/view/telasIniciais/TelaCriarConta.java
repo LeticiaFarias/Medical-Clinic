@@ -75,12 +75,15 @@ public class TelaCriarConta extends javax.swing.JFrame {
 			}
 		});
 
-		jButtonSair = new javax.swing.JButton("SAIR");
+		jButtonSair = new javax.swing.JButton("VOLTAR");
 		jButtonSair.setBackground(new java.awt.Color(255, 255, 255));
 		jButtonSair.setFont(new java.awt.Font("Code Light", 0, 11));
 		jButtonSair.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 		jButtonSair.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				TelaLogin telaLogin = new TelaLogin();
+				telaLogin.setVisible(true);
+				
 				dispose();
 			}
 		});
