@@ -12,6 +12,9 @@ import javax.swing.GroupLayout.Alignment;
 import javax.swing.GroupLayout;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
+import java.awt.Font;
 
 public class TelaCadastroAtedente extends javax.swing.JFrame {
 
@@ -23,67 +26,64 @@ public class TelaCadastroAtedente extends javax.swing.JFrame {
 
 	private void initComponents() {
 
-		jPanel1 = new javax.swing.JPanel();
-		icon = new javax.swing.JLabel();
-		jLabelCadastrarAtendenteTXT = new javax.swing.JLabel();
-		txtCpf = new javax.swing.JTextField();
-		buttonVoltar = new javax.swing.JButton();
-		buttonRestaurar = new javax.swing.JButton();
-		buttonCadastrar = new javax.swing.JButton();
-		txtNome = new javax.swing.JTextField();
-		txtEmail = new javax.swing.JTextField();
-		txtSenha = new javax.swing.JPasswordField();
-		txtConfirmarSenha = new javax.swing.JPasswordField();
-
 		setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 		setTitle("Cadastro");
 		setBackground(new java.awt.Color(255, 255, 255));
 		setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 		setResizable(false);
 
+		jPanel1 = new javax.swing.JPanel();
 		jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 		jPanel1.setForeground(new java.awt.Color(255, 255, 255));
 
-		// icon.setIcon(new
-		// javax.swing.ImageIcon(getClass().getResource("/img/logosuperp.png")));
+		lblNewLabel = new JLabel();
+		lblNewLabel.setIcon(new ImageIcon(TelaCadastroAtedente.class.getResource("/br/ufc/clinic/imagens/logo.png")));
 
-		jLabelCadastrarAtendenteTXT.setFont(new java.awt.Font("Code Light", 0, 24)); // NOI18N
+		jLabelCadastrarAtendenteTXT = new javax.swing.JLabel("Cadastre seu Atendente!");
+		jLabelCadastrarAtendenteTXT.setFont(new Font("Dialog", Font.BOLD, 24)); // NOI18N
 		jLabelCadastrarAtendenteTXT.setForeground(new java.awt.Color(0, 0, 51));
-		jLabelCadastrarAtendenteTXT.setText("Cadastrar Atendente");
 
+		txtCpf = new javax.swing.JTextField();
 		txtCpf.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 		txtCpf.setBorder(javax.swing.BorderFactory.createTitledBorder("CPF"));
 
+		txtNome = new javax.swing.JTextField();
 		txtNome.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 		txtNome.setBorder(javax.swing.BorderFactory.createTitledBorder("NOME"));
 
+		txtEmail = new javax.swing.JTextField();
 		txtEmail.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 		txtEmail.setBorder(javax.swing.BorderFactory.createTitledBorder("EMAIL"));
 
+		txtSenha = new javax.swing.JPasswordField();
 		txtSenha.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 		txtSenha.setBorder(javax.swing.BorderFactory.createTitledBorder("SENHA"));
 
+		txtConfirmarSenha = new javax.swing.JPasswordField();
 		txtConfirmarSenha.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 		txtConfirmarSenha.setBorder(javax.swing.BorderFactory.createTitledBorder("CONFIRMAR SENHA"));
 
+		buttonVoltar = new javax.swing.JButton("VOLTAR");
 		buttonVoltar.setFont(new java.awt.Font("Code Light", 0, 11));
-		buttonVoltar.setText("VOLTAR");
 		buttonVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				buttonVoltarActionPerformed(evt);
+				TelaMenuAdm telaMenuAdm = new TelaMenuAdm();
+				telaMenuAdm.setVisible(true);
+
+				dispose();
 			}
 		});
 
+		buttonRestaurar = new javax.swing.JButton("LIMPAR");
 		buttonRestaurar.setFont(new java.awt.Font("Code Light", 0, 11));
-		buttonRestaurar.setText("LIMPAR");
 		buttonRestaurar.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
 				buttonRestaurarActionPerformed(evt);
 			}
 		});
 
+		buttonCadastrar = new javax.swing.JButton("CADASTRAR");
 		buttonCadastrar.setFont(new java.awt.Font("Code Light", 0, 11));
-		buttonCadastrar.setText("CADASTRAR");
 		buttonCadastrar.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
 				buttonCadastrarActionPerformed(evt);
@@ -94,72 +94,78 @@ public class TelaCadastroAtedente extends javax.swing.JFrame {
 		buttonVoltar.setText("VOLTAR");
 		buttonVoltar.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				dispose();
 				TelaMenuAdm telaMenuAdm = new TelaMenuAdm();
 				telaMenuAdm.setVisible(true);
-
-				dispose();
 			}
 		});
 
 		javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-		jPanel1Layout.setHorizontalGroup(jPanel1Layout.createParallelGroup(Alignment.LEADING).addGroup(jPanel1Layout
-				.createSequentialGroup().addGap(61)
-				.addGroup(jPanel1Layout.createParallelGroup(Alignment.LEADING)
-						.addGroup(jPanel1Layout.createSequentialGroup().addGap(11).addComponent(icon).addGap(49)
-								.addComponent(jLabelCadastrarAtendenteTXT))
+		jPanel1Layout.setHorizontalGroup(jPanel1Layout.createParallelGroup(Alignment.TRAILING)
+				.addGroup(jPanel1Layout.createSequentialGroup().addGap(93)
+						.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 250, GroupLayout.PREFERRED_SIZE)
+						.addGap(47).addComponent(jLabelCadastrarAtendenteTXT).addContainerGap(93, Short.MAX_VALUE))
+				.addGroup(jPanel1Layout.createSequentialGroup().addGroup(jPanel1Layout
+						.createParallelGroup(Alignment.TRAILING)
 						.addGroup(jPanel1Layout.createParallelGroup(Alignment.TRAILING)
-								.addComponent(txtCpf, GroupLayout.PREFERRED_SIZE, 394, GroupLayout.PREFERRED_SIZE)
-								.addComponent(txtNome, GroupLayout.PREFERRED_SIZE, 394, GroupLayout.PREFERRED_SIZE)
-								.addComponent(txtEmail, GroupLayout.PREFERRED_SIZE, 394, GroupLayout.PREFERRED_SIZE)
-								.addComponent(txtSenha, GroupLayout.PREFERRED_SIZE, 394, GroupLayout.PREFERRED_SIZE)
-								.addComponent(txtConfirmarSenha, GroupLayout.PREFERRED_SIZE, 394,
-										GroupLayout.PREFERRED_SIZE)
-								.addGroup(jPanel1Layout.createSequentialGroup()
-										.addComponent(buttonVoltar, GroupLayout.PREFERRED_SIZE, 120,
-												GroupLayout.PREFERRED_SIZE)
-										.addPreferredGap(ComponentPlacement.UNRELATED)
-										.addComponent(buttonRestaurar, GroupLayout.PREFERRED_SIZE, 120,
-												GroupLayout.PREFERRED_SIZE)
-										.addPreferredGap(ComponentPlacement.UNRELATED).addComponent(buttonCadastrar,
-												GroupLayout.PREFERRED_SIZE, 120, GroupLayout.PREFERRED_SIZE))))
-				.addContainerGap(60, Short.MAX_VALUE)));
-		jPanel1Layout.setVerticalGroup(jPanel1Layout.createParallelGroup(Alignment.LEADING).addGroup(jPanel1Layout
-				.createSequentialGroup().addGap(19)
-				.addGroup(jPanel1Layout.createParallelGroup(Alignment.TRAILING)
-						.addComponent(jLabelCadastrarAtendenteTXT, GroupLayout.PREFERRED_SIZE, 40,
+								.addGroup(jPanel1Layout.createSequentialGroup().addContainerGap().addComponent(txtEmail,
+										422, 422, 422))
+								.addGroup(jPanel1Layout.createSequentialGroup().addContainerGap(216, Short.MAX_VALUE)
+										.addGroup(jPanel1Layout.createParallelGroup(Alignment.TRAILING)
+												.addGroup(jPanel1Layout.createSequentialGroup()
+														.addComponent(buttonVoltar, GroupLayout.PREFERRED_SIZE, 120,
+																GroupLayout.PREFERRED_SIZE)
+														.addPreferredGap(ComponentPlacement.RELATED, 36,
+																Short.MAX_VALUE)
+														.addComponent(buttonRestaurar, GroupLayout.PREFERRED_SIZE, 120,
+																GroupLayout.PREFERRED_SIZE)
+														.addGap(26).addComponent(buttonCadastrar,
+																GroupLayout.PREFERRED_SIZE, 120,
+																GroupLayout.PREFERRED_SIZE))
+												.addComponent(txtConfirmarSenha, 422, 422, 422)
+												.addComponent(txtSenha, 422, 422, 422))))
+						.addGroup(jPanel1Layout.createSequentialGroup().addContainerGap()
+								.addGroup(jPanel1Layout.createParallelGroup(Alignment.LEADING, false)
+										.addComponent(txtNome, Alignment.TRAILING)
+										.addComponent(txtCpf, Alignment.TRAILING, 422, 422, Short.MAX_VALUE))))
+						.addGap(179)));
+		jPanel1Layout.setVerticalGroup(jPanel1Layout.createParallelGroup(Alignment.LEADING)
+				.addGroup(jPanel1Layout.createSequentialGroup()
+						.addGroup(jPanel1Layout.createParallelGroup(Alignment.LEADING)
+								.addGroup(jPanel1Layout.createSequentialGroup().addGap(26).addComponent(lblNewLabel))
+								.addGroup(jPanel1Layout.createSequentialGroup().addGap(41).addComponent(
+										jLabelCadastrarAtendenteTXT, GroupLayout.PREFERRED_SIZE, 40,
+										GroupLayout.PREFERRED_SIZE)))
+						.addGap(45).addComponent(txtNome, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
+						.addGap(18).addComponent(txtCpf, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
+						.addGap(18).addComponent(txtEmail, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
+						.addGap(18).addComponent(txtSenha, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
+						.addGap(27)
+						.addComponent(txtConfirmarSenha, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
 								GroupLayout.PREFERRED_SIZE)
-						.addComponent(icon))
-				.addGap(63).addComponent(txtNome, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE).addGap(18)
-				.addComponent(txtCpf, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE).addGap(18)
-				.addComponent(txtEmail, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE).addGap(18)
-				.addComponent(txtSenha, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE).addGap(18)
-				.addComponent(txtConfirmarSenha, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-						GroupLayout.PREFERRED_SIZE)
-				.addPreferredGap(ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
-				.addGroup(jPanel1Layout.createParallelGroup(Alignment.BASELINE)
-						.addComponent(buttonCadastrar, GroupLayout.PREFERRED_SIZE, 29, GroupLayout.PREFERRED_SIZE)
-						.addComponent(buttonRestaurar, GroupLayout.PREFERRED_SIZE, 29, GroupLayout.PREFERRED_SIZE)
-						.addComponent(buttonVoltar, GroupLayout.PREFERRED_SIZE, 29, GroupLayout.PREFERRED_SIZE))
-				.addGap(28)));
+						.addGap(54)
+						.addGroup(jPanel1Layout.createParallelGroup(Alignment.BASELINE)
+								.addComponent(buttonCadastrar, GroupLayout.PREFERRED_SIZE, 29,
+										GroupLayout.PREFERRED_SIZE)
+								.addComponent(buttonRestaurar, GroupLayout.PREFERRED_SIZE, 29,
+										GroupLayout.PREFERRED_SIZE)
+								.addComponent(buttonVoltar, GroupLayout.PREFERRED_SIZE, 29, GroupLayout.PREFERRED_SIZE))
+						.addGap(59)));
 		jPanel1.setLayout(jPanel1Layout);
 
 		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+		layout.setHorizontalGroup(layout.createParallelGroup(Alignment.LEADING)
+				.addGroup(layout.createSequentialGroup()
+						.addComponent(jPanel1, GroupLayout.PREFERRED_SIZE, 817, GroupLayout.PREFERRED_SIZE)
+						.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
+		layout.setVerticalGroup(layout.createParallelGroup(Alignment.LEADING)
+				.addGroup(layout.createSequentialGroup()
+						.addComponent(jPanel1, GroupLayout.PREFERRED_SIZE, 567, GroupLayout.PREFERRED_SIZE)
+						.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
 		getContentPane().setLayout(layout);
-		layout.setHorizontalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addComponent(
-				jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE,
-				javax.swing.GroupLayout.PREFERRED_SIZE));
-		layout.setVerticalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addComponent(
-				jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
 
 		pack();
 		setLocationRelativeTo(null);
-	}
-
-	private void buttonVoltarActionPerformed(java.awt.event.ActionEvent evt) {
-		TelaCriarConta telaCriarConta = new TelaCriarConta();
-		telaCriarConta.setVisible(true);
-
-		dispose();
 	}
 
 	private void buttonRestaurarActionPerformed(java.awt.event.ActionEvent evt) {
@@ -219,17 +225,10 @@ public class TelaCadastroAtedente extends javax.swing.JFrame {
 					null, ex);
 		}
 
-		java.awt.EventQueue.invokeLater(new Runnable() {
-			public void run() {
-
-			}
-		});
 	}
 
-	// Variables declaration - do not modify//GEN-BEGIN:variables
 	private javax.swing.JButton buttonCadastrar;
 	private javax.swing.JButton buttonRestaurar;
-	private javax.swing.JLabel icon;
 	private javax.swing.JLabel jLabelCadastrarAtendenteTXT;
 	private javax.swing.JPanel jPanel1;
 	private javax.swing.JPasswordField txtConfirmarSenha;
@@ -238,5 +237,5 @@ public class TelaCadastroAtedente extends javax.swing.JFrame {
 	private javax.swing.JTextField txtNome;
 	private javax.swing.JPasswordField txtSenha;
 	private JButton buttonVoltar;
-	// End of variables declaration//GEN-END:variables
+	private JLabel lblNewLabel;
 }
