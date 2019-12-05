@@ -8,6 +8,9 @@ import br.ufc.clinic.view.agenda.TelaAgenda;
 import br.ufc.clinic.view.cliente.TelaCadastroCliente;
 import br.ufc.clinic.view.medico.TelaCadastroMedico;
 import br.ufc.clinic.view.telasIniciais.TelaLogin;
+import java.awt.Font;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
 
 public class TelaMenuAtendente extends javax.swing.JFrame {
 	private static final long serialVersionUID = 1L;
@@ -18,60 +21,44 @@ public class TelaMenuAtendente extends javax.swing.JFrame {
 
 	private void initComponents() {
 
-		jLabel1 = new javax.swing.JLabel();
-		jButton3 = new javax.swing.JButton();
-		jPanelSair = new javax.swing.JPanel();
-		jLabel4 = new javax.swing.JLabel();
-		jButtonPesquisarCliente = new javax.swing.JButton();
-		jLabel2 = new javax.swing.JLabel();
-		jButtonCadastrarMedico = new javax.swing.JButton();
-		jButtonAgenda = new javax.swing.JButton();
-		jButton5 = new javax.swing.JButton();
-		jButtonPesquisarMedico = new javax.swing.JButton();
-		jButtonCadastrarCliente = new javax.swing.JButton();
-
-		jLabel1.setFont(new java.awt.Font("Code Light", 0, 24)); // NOI18N
-		jLabel1.setForeground(new java.awt.Color(0, 0, 51));
-		jLabel1.setText("Cadastrar medico");
-
-		jButton3.setBackground(new java.awt.Color(255, 255, 255));
-		jButton3.setFont(new java.awt.Font("Code Light", 0, 11)); // NOI18N
-		jButton3.setText("CRIAR CONTA");
-		jButton3.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				jButton3ActionPerformed(evt);
-			}
-		});
-
 		setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 		setTitle("Acesso");
 		setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
+		jPanelSair = new javax.swing.JPanel();
 		jPanelSair.setBackground(new java.awt.Color(255, 255, 255));
-		jPanelSair.setToolTipText("Acesso");
+		jPanelSair.setToolTipText("I9Life");
 
-		// jLabel4.setIcon(new
-		// javax.swing.ImageIcon(getClass().getResource("/img/logosuperp.png"))); //
-		// NOI18N
+		jLabel1 = new javax.swing.JLabel();
+		jLabel1.setFont(new java.awt.Font("Code Light", 0, 24)); // NOI18N
+		jLabel1.setForeground(new java.awt.Color(0, 0, 51));
+		jLabel1.setText("Cadastrar medico");
 
-		jButtonPesquisarCliente.setBackground(new java.awt.Color(255, 255, 255));
-		jButtonPesquisarCliente.setFont(new java.awt.Font("Code Light", 0, 11));
-		jButtonPesquisarCliente.setText("PESQUISAR cliente");
-		jButtonPesquisarCliente
+		jLabel2 = new javax.swing.JLabel("BEM VINDO ATENDENTE!");
+		jLabel2.setFont(new Font("Dialog", Font.BOLD, 24));
+		jLabel2.setForeground(new java.awt.Color(0, 0, 51));
+
+		lblNewLabel = new JLabel();
+		lblNewLabel.setIcon(new ImageIcon(TelaMenuAtendente.class.getResource("/br/ufc/clinic/imagens/logo.png")));
+
+		jButtonPesquisarUsuarios = new javax.swing.JButton("PESQUISAR USUÁRIOS");
+		jButtonPesquisarUsuarios
+				.setIcon(new ImageIcon(TelaMenuAtendente.class.getResource("/br/ufc/clinic/imagens/PesquisarP.png")));
+		jButtonPesquisarUsuarios.setBackground(new java.awt.Color(255, 255, 255));
+		jButtonPesquisarUsuarios.setFont(new java.awt.Font("Code Light", 0, 11));
+		jButtonPesquisarUsuarios
 				.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-		jButtonPesquisarCliente.addActionListener(new java.awt.event.ActionListener() {
+		jButtonPesquisarUsuarios.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				jButton1ActionPerformed(evt);
+				jButtonPesquisarUsuariosActionPerformed(evt);
 			}
 		});
 
-		jLabel2.setFont(new java.awt.Font("Code Light", 0, 24));
-		jLabel2.setForeground(new java.awt.Color(0, 0, 51));
-		jLabel2.setText("menu Atendente");
-
+		jButtonCadastrarMedico = new javax.swing.JButton("CADASTRAR MÉDICO");
+		jButtonCadastrarMedico
+				.setIcon(new ImageIcon(TelaMenuAtendente.class.getResource("/br/ufc/clinic/imagens/medicoP.png")));
 		jButtonCadastrarMedico.setBackground(new java.awt.Color(255, 255, 255));
 		jButtonCadastrarMedico.setFont(new java.awt.Font("Code Light", 0, 11));
-		jButtonCadastrarMedico.setText(" cadastrar medico");
 		jButtonCadastrarMedico.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 		jButtonCadastrarMedico.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -79,10 +66,10 @@ public class TelaMenuAtendente extends javax.swing.JFrame {
 			}
 		});
 
+		jButtonAgenda = new javax.swing.JButton("   AGENDA");
+		jButtonAgenda.setIcon(new ImageIcon(TelaMenuAtendente.class.getResource("/br/ufc/clinic/imagens/agendaP.png")));
 		jButtonAgenda.setBackground(new java.awt.Color(255, 255, 255));
 		jButtonAgenda.setFont(new java.awt.Font("Code Light", 0, 11));
-		jButtonAgenda.setText("AGENDA");
-		jButtonAgenda.setActionCommand("");
 		jButtonAgenda.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 		jButtonAgenda.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -90,11 +77,11 @@ public class TelaMenuAtendente extends javax.swing.JFrame {
 			}
 		});
 
-		jButton5.setBackground(new java.awt.Color(255, 255, 255));
-		jButton5.setFont(new java.awt.Font("Code Light", 0, 11));
-		jButton5.setText("SAIR");
-		jButton5.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-		jButton5.addActionListener(new java.awt.event.ActionListener() {
+		jButtonSair = new javax.swing.JButton("SAIR");
+		jButtonSair.setBackground(new java.awt.Color(255, 255, 255));
+		jButtonSair.setFont(new java.awt.Font("Code Light", 0, 11));
+		jButtonSair.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+		jButtonSair.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
 				TelaLogin telaLogin = new TelaLogin();
 				telaLogin.setVisible(true);
@@ -103,19 +90,23 @@ public class TelaMenuAtendente extends javax.swing.JFrame {
 			}
 		});
 
-		jButtonPesquisarMedico.setBackground(new java.awt.Color(255, 255, 255));
-		jButtonPesquisarMedico.setFont(new java.awt.Font("Code Light", 0, 11));
-		jButtonPesquisarMedico.setText("PESQUISAR medico");
-		jButtonPesquisarMedico.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-		jButtonPesquisarMedico.addActionListener(new java.awt.event.ActionListener() {
+		jButtonInfoPessoais = new javax.swing.JButton("INFORMAÇÕES PESSOAIS");
+		jButtonInfoPessoais.setIcon(
+				new ImageIcon(TelaMenuAtendente.class.getResource("/br/ufc/clinic/imagens/infoPessoaisP.png")));
+		jButtonInfoPessoais.setBackground(new java.awt.Color(255, 255, 255));
+		jButtonInfoPessoais.setFont(new java.awt.Font("Code Light", 0, 11));
+		jButtonInfoPessoais.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+		jButtonInfoPessoais.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				jButton6ActionPerformed(evt);
+				jButtonInformacoesPessoaisActionPerformed(evt);
 			}
 		});
 
+		jButtonCadastrarCliente = new javax.swing.JButton("CADASTRAR CLIENTE");
+		jButtonCadastrarCliente
+				.setIcon(new ImageIcon(TelaMenuAtendente.class.getResource("/br/ufc/clinic/imagens/cadastroP.png")));
 		jButtonCadastrarCliente.setBackground(new java.awt.Color(255, 255, 255));
 		jButtonCadastrarCliente.setFont(new java.awt.Font("Code Light", 0, 11));
-		jButtonCadastrarCliente.setText("CADASTRAR cliente");
 		jButtonCadastrarCliente
 				.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 		jButtonCadastrarCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -125,72 +116,83 @@ public class TelaMenuAtendente extends javax.swing.JFrame {
 		});
 
 		javax.swing.GroupLayout gl_jPanelSair = new javax.swing.GroupLayout(jPanelSair);
-		gl_jPanelSair.setHorizontalGroup(
-				gl_jPanelSair.createParallelGroup(Alignment.TRAILING)
-						.addGroup(
-								Alignment.LEADING,
-								gl_jPanelSair
-										.createSequentialGroup().addGap(75).addComponent(jLabel4).addGap(55)
-										.addComponent(jLabel2, GroupLayout.PREFERRED_SIZE, 218,
+		gl_jPanelSair.setHorizontalGroup(gl_jPanelSair.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_jPanelSair
+						.createSequentialGroup().addGap(
+								165)
+						.addGroup(gl_jPanelSair.createParallelGroup(Alignment.LEADING)
+								.addGroup(gl_jPanelSair
+										.createSequentialGroup()
+										.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 248,
 												GroupLayout.PREFERRED_SIZE)
-										.addContainerGap(132, Short.MAX_VALUE))
-						.addGroup(gl_jPanelSair.createSequentialGroup().addGap(92)
-								.addGroup(gl_jPanelSair.createParallelGroup(Alignment.TRAILING)
-										.addComponent(jButtonPesquisarMedico, GroupLayout.PREFERRED_SIZE, 120,
-												GroupLayout.PREFERRED_SIZE)
-										.addComponent(jButtonCadastrarMedico, GroupLayout.PREFERRED_SIZE, 120,
-												GroupLayout.PREFERRED_SIZE)
-										.addComponent(jButtonAgenda, GroupLayout.PREFERRED_SIZE, 120,
+										.addGap(18).addComponent(jLabel2, GroupLayout.PREFERRED_SIZE, 353,
 												GroupLayout.PREFERRED_SIZE))
-								.addPreferredGap(ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
-								.addGroup(gl_jPanelSair.createParallelGroup(Alignment.LEADING)
-										.addComponent(jButton5, GroupLayout.PREFERRED_SIZE, 120,
-												GroupLayout.PREFERRED_SIZE)
-										.addComponent(jButtonPesquisarCliente, GroupLayout.PREFERRED_SIZE, 120,
-												GroupLayout.PREFERRED_SIZE)
-										.addComponent(jButtonCadastrarCliente, GroupLayout.PREFERRED_SIZE, 120,
-												GroupLayout.PREFERRED_SIZE))
-								.addGap(98)));
+								.addGroup(gl_jPanelSair.createSequentialGroup()
+										.addGroup(gl_jPanelSair.createParallelGroup(Alignment.LEADING, false)
+												.addComponent(jButtonAgenda, GroupLayout.DEFAULT_SIZE,
+														GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+												.addComponent(jButtonCadastrarCliente, GroupLayout.DEFAULT_SIZE,
+														GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+												.addComponent(jButtonCadastrarMedico, GroupLayout.DEFAULT_SIZE, 313,
+														Short.MAX_VALUE))
+										.addPreferredGap(ComponentPlacement.RELATED, 96, Short.MAX_VALUE)
+										.addGroup(gl_jPanelSair.createParallelGroup(Alignment.TRAILING)
+												.addGroup(gl_jPanelSair
+														.createSequentialGroup()
+														.addComponent(jButtonSair, GroupLayout.PREFERRED_SIZE, 120,
+																GroupLayout.PREFERRED_SIZE)
+														.addGap(71))
+												.addGroup(gl_jPanelSair.createSequentialGroup().addGroup(gl_jPanelSair
+														.createParallelGroup(Alignment.LEADING, false)
+														.addComponent(jButtonInfoPessoais, Alignment.TRAILING,
+																GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE,
+																Short.MAX_VALUE)
+														.addComponent(jButtonPesquisarUsuarios, Alignment.TRAILING,
+																GroupLayout.DEFAULT_SIZE, 261, Short.MAX_VALUE))
+														.addPreferredGap(ComponentPlacement.RELATED)))))
+						.addGap(132)));
 		gl_jPanelSair.setVerticalGroup(gl_jPanelSair.createParallelGroup(Alignment.LEADING).addGroup(gl_jPanelSair
 				.createSequentialGroup()
 				.addGroup(gl_jPanelSair.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_jPanelSair.createSequentialGroup().addGap(19).addComponent(jLabel4,
-								GroupLayout.PREFERRED_SIZE, 92, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_jPanelSair.createSequentialGroup().addGap(46)
+						.addGroup(gl_jPanelSair.createSequentialGroup().addGap(20).addComponent(lblNewLabel))
+						.addGroup(gl_jPanelSair.createSequentialGroup().addGap(29)
 								.addComponent(jLabel2, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE)))
-				.addGap(37)
+				.addGap(54)
 				.addGroup(gl_jPanelSair.createParallelGroup(Alignment.BASELINE)
-						.addComponent(jButtonCadastrarMedico, GroupLayout.PREFERRED_SIZE, 31,
+						.addComponent(jButtonCadastrarMedico, GroupLayout.PREFERRED_SIZE, 114,
 								GroupLayout.PREFERRED_SIZE)
-						.addComponent(jButtonCadastrarCliente, GroupLayout.PREFERRED_SIZE, 31,
-								GroupLayout.PREFERRED_SIZE))
-				.addGap(18)
-				.addGroup(gl_jPanelSair.createParallelGroup(Alignment.BASELINE)
-						.addComponent(jButtonPesquisarMedico, GroupLayout.PREFERRED_SIZE, 31,
-								GroupLayout.PREFERRED_SIZE)
-						.addComponent(jButtonPesquisarCliente, GroupLayout.PREFERRED_SIZE, 31,
-								GroupLayout.PREFERRED_SIZE))
-				.addGap(28).addComponent(jButtonAgenda, GroupLayout.PREFERRED_SIZE, 31, GroupLayout.PREFERRED_SIZE)
-				.addPreferredGap(ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
-				.addComponent(jButton5, GroupLayout.PREFERRED_SIZE, 31, GroupLayout.PREFERRED_SIZE).addGap(61)));
+						.addComponent(jButtonPesquisarUsuarios, GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE))
+				.addGroup(gl_jPanelSair.createParallelGroup(Alignment.TRAILING)
+						.addGroup(gl_jPanelSair.createSequentialGroup().addGap(58).addComponent(jButtonInfoPessoais,
+								GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE))
+						.addGroup(gl_jPanelSair.createSequentialGroup().addPreferredGap(ComponentPlacement.RELATED)
+								.addComponent(jButtonCadastrarCliente, GroupLayout.PREFERRED_SIZE, 150,
+										GroupLayout.PREFERRED_SIZE)))
+				.addGroup(gl_jPanelSair.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_jPanelSair.createSequentialGroup().addGap(114).addComponent(jButtonSair,
+								GroupLayout.PREFERRED_SIZE, 31, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_jPanelSair.createSequentialGroup().addGap(74).addComponent(jButtonAgenda,
+								GroupLayout.PREFERRED_SIZE, 136, GroupLayout.PREFERRED_SIZE)))
+				.addGap(99)));
 		jPanelSair.setLayout(gl_jPanelSair);
 
 		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+		layout.setHorizontalGroup(layout.createParallelGroup(Alignment.LEADING)
+				.addGroup(layout.createSequentialGroup()
+						.addComponent(jPanelSair, GroupLayout.PREFERRED_SIZE, 967, GroupLayout.PREFERRED_SIZE)
+						.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
+		layout.setVerticalGroup(layout.createParallelGroup(Alignment.LEADING)
+				.addGroup(layout.createSequentialGroup()
+						.addComponent(jPanelSair, GroupLayout.PREFERRED_SIZE, 805, GroupLayout.PREFERRED_SIZE)
+						.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
 		getContentPane().setLayout(layout);
-		layout.setHorizontalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addComponent(
-				jPanelSair, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE,
-				javax.swing.GroupLayout.PREFERRED_SIZE));
-		layout.setVerticalGroup(
-				layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addComponent(jPanelSair,
-						javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
 
 		pack();
 		setLocationRelativeTo(null);
-	}// </editor-fold>//GEN-END:initComponents
+	}
 
-	private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
-		TelaCadastroAtedente tc = new TelaCadastroAtedente();
-		tc.setVisible(true);
+	private void jButtonPesquisarUsuariosActionPerformed(java.awt.event.ActionEvent evt) {
+
 	}
 
 	private void jButtonCadastrarMedicoActionPerformed(java.awt.event.ActionEvent evt) {
@@ -205,16 +207,13 @@ public class TelaMenuAtendente extends javax.swing.JFrame {
 		dispose();
 	}
 
-	private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {
-
-	}
-
 	private void jButtonAgendaActionPerformed(java.awt.event.ActionEvent evt) {
 		TelaAgenda telaAgenda = new TelaAgenda();
 		telaAgenda.setVisible(true);
+
 	}
 
-	private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {
+	private void jButtonInformacoesPessoaisActionPerformed(java.awt.event.ActionEvent evt) {
 
 	}
 
@@ -239,25 +238,17 @@ public class TelaMenuAtendente extends javax.swing.JFrame {
 			java.util.logging.Logger.getLogger(TelaMenuAtendente.class.getName()).log(java.util.logging.Level.SEVERE,
 					null, ex);
 		}
-
-		java.awt.EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				new TelaMenuAtendente().setVisible(true);
-			}
-		});
 	}
 
-	// Variables declaration - do not modify//GEN-BEGIN:variables
-	private javax.swing.JButton jButtonPesquisarCliente;
+	private javax.swing.JButton jButtonPesquisarUsuarios;
 	private javax.swing.JButton jButtonCadastrarMedico;
-	private javax.swing.JButton jButton3;
 	private javax.swing.JButton jButtonAgenda;
-	private javax.swing.JButton jButton5;
-	private javax.swing.JButton jButtonPesquisarMedico;
+	private javax.swing.JButton jButtonSair;
+	private javax.swing.JButton jButtonInfoPessoais;
 	private javax.swing.JButton jButtonCadastrarCliente;
 	private javax.swing.JLabel jLabel1;
 	private javax.swing.JLabel jLabel2;
-	private javax.swing.JLabel jLabel4;
 	private javax.swing.JPanel jPanelSair;
-	// End of variables declaration//GEN-END:variables
+	private JLabel lblNewLabel;
+	
 }
