@@ -14,6 +14,7 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
+import java.awt.Font;
 
 public class TelaCadastroAdm extends javax.swing.JFrame {
 
@@ -26,7 +27,7 @@ public class TelaCadastroAdm extends javax.swing.JFrame {
 	private void initComponents() {
 
 		setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-		setTitle("Cadastro");
+		setTitle("I9Life");
 		setBackground(new java.awt.Color(255, 255, 255));
 		setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 		setResizable(false);
@@ -39,7 +40,7 @@ public class TelaCadastroAdm extends javax.swing.JFrame {
 		lblNewLabel.setIcon(new ImageIcon(TelaCadastroAdm.class.getResource("/br/ufc/clinic/imagens/logo.png")));
 
 		jLabelCadastrarAdmTXT = new javax.swing.JLabel("Cadastre-se como Administrador");
-		jLabelCadastrarAdmTXT.setFont(new java.awt.Font("Code Light", 0, 24));
+		jLabelCadastrarAdmTXT.setFont(new Font("Dialog", Font.BOLD, 24));
 		jLabelCadastrarAdmTXT.setForeground(new java.awt.Color(0, 0, 51));
 
 		txtNome = new javax.swing.JTextField();
