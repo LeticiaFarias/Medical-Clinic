@@ -3,10 +3,11 @@ package br.ufc.clinic.view.medico;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 
-import br.ufc.clinic.view.telasIniciais.TelaLogin;
-
 import javax.swing.GroupLayout;
 import javax.swing.JButton;
+import java.awt.Font;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
 
 public class TelaMenuMedico extends javax.swing.JFrame {
 	private static final long serialVersionUID = 1L;
@@ -22,7 +23,6 @@ public class TelaMenuMedico extends javax.swing.JFrame {
 		jLabelMenuMedicoTXT = new javax.swing.JLabel();
 		jButtonPesquisar = new javax.swing.JButton();
 		jButtonAgenda = new javax.swing.JButton();
-		jButtonSair = new javax.swing.JButton();
 		jButtonConfiguracoes = new javax.swing.JButton();
 
 		jLabel1.setFont(new java.awt.Font("Code Light", 0, 24));
@@ -36,13 +36,9 @@ public class TelaMenuMedico extends javax.swing.JFrame {
 		jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 		jPanel1.setToolTipText("Acesso");
 
-		// jLabel4.setIcon(new
-		// javax.swing.ImageIcon(getClass().getResource("/img/logosuperp.png"))); //
-		// NOI18N
-
-		jLabelMenuMedicoTXT.setFont(new java.awt.Font("Code Light", 0, 24));
+		jLabelMenuMedicoTXT.setFont(new Font("Dialog", Font.BOLD, 24));
 		jLabelMenuMedicoTXT.setForeground(new java.awt.Color(0, 0, 51));
-		jLabelMenuMedicoTXT.setText("menu medico");
+		jLabelMenuMedicoTXT.setText("BEM VINDO MÉDICO(A)!");
 
 		jButtonPesquisar.setBackground(new java.awt.Color(255, 255, 255));
 		jButtonPesquisar.setFont(new java.awt.Font("Code Light", 0, 11));
@@ -65,22 +61,9 @@ public class TelaMenuMedico extends javax.swing.JFrame {
 			}
 		});
 
-		jButtonSair.setBackground(new java.awt.Color(255, 255, 255));
-		jButtonSair.setFont(new java.awt.Font("Code Light", 0, 11));
-		jButtonSair.setText("SAIR");
-		jButtonSair.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-		jButtonSair.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				TelaLogin telaLogin = new TelaLogin();
-
-				telaLogin.setVisible(true);
-				dispose();
-			}
-		});
-
 		jButtonConfiguracoes.setBackground(new java.awt.Color(255, 255, 255));
 		jButtonConfiguracoes.setFont(new java.awt.Font("Code Light", 0, 11));
-		jButtonConfiguracoes.setText("Informações Pessoais");
+		jButtonConfiguracoes.setText("INFORMAÇÕES PESSOAIS");
 		jButtonConfiguracoes.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 		jButtonConfiguracoes.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -88,55 +71,72 @@ public class TelaMenuMedico extends javax.swing.JFrame {
 			}
 		});
 
+		lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon(TelaMenuMedico.class.getResource("/br/ufc/clinic/imagens/logo.png")));
+
+		btnSair = new JButton("SAIR");
+
 		javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-		jPanel1Layout
-				.setHorizontalGroup(jPanel1Layout.createParallelGroup(Alignment.TRAILING)
-						.addGroup(
-								jPanel1Layout.createSequentialGroup().addGap(75).addComponent(jLabel4)
-										.addPreferredGap(ComponentPlacement.RELATED, 145, Short.MAX_VALUE)
-										.addComponent(jLabelMenuMedicoTXT, GroupLayout.PREFERRED_SIZE, 218,
-												GroupLayout.PREFERRED_SIZE)
-										.addGap(50))
-						.addGroup(jPanel1Layout.createSequentialGroup().addContainerGap(105, Short.MAX_VALUE)
-								.addGroup(jPanel1Layout.createParallelGroup(Alignment.TRAILING, false).addGroup(
-										jPanel1Layout.createSequentialGroup().addComponent(jButtonConfiguracoes)
-												.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE,
-														Short.MAX_VALUE)
-												.addComponent(jButtonSair, GroupLayout.PREFERRED_SIZE, 120,
-														GroupLayout.PREFERRED_SIZE))
-										.addGroup(jPanel1Layout.createSequentialGroup()
-												.addComponent(jButtonPesquisar, GroupLayout.PREFERRED_SIZE, 120,
-														GroupLayout.PREFERRED_SIZE)
-												.addGap(48).addComponent(jButtonAgenda, GroupLayout.PREFERRED_SIZE, 120,
-														GroupLayout.PREFERRED_SIZE)))
-								.addGap(95)));
+		jPanel1Layout.setHorizontalGroup(jPanel1Layout.createParallelGroup(Alignment.LEADING).addGroup(jPanel1Layout
+				.createSequentialGroup()
+				.addGroup(jPanel1Layout.createParallelGroup(Alignment.LEADING)
+						.addGroup(jPanel1Layout.createSequentialGroup().addGap(77).addComponent(lblNewLabel).addGap(18)
+								.addComponent(jLabelMenuMedicoTXT))
+						.addGroup(jPanel1Layout.createSequentialGroup().addGroup(jPanel1Layout
+								.createParallelGroup(Alignment.LEADING, false)
+								.addGroup(jPanel1Layout.createSequentialGroup().addGap(65).addComponent(
+										jButtonPesquisar, GroupLayout.PREFERRED_SIZE, 271, GroupLayout.PREFERRED_SIZE))
+								.addGroup(jPanel1Layout.createSequentialGroup().addGap(51).addComponent(
+										jButtonConfiguracoes, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE,
+										Short.MAX_VALUE)))
+								.addPreferredGap(ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
+								.addGroup(jPanel1Layout.createParallelGroup(Alignment.LEADING)
+										.addGroup(Alignment.TRAILING,
+												jPanel1Layout.createSequentialGroup()
+														.addComponent(jButtonAgenda, GroupLayout.PREFERRED_SIZE, 270,
+																GroupLayout.PREFERRED_SIZE)
+														.addGap(76))
+										.addGroup(Alignment.TRAILING,
+												jPanel1Layout.createSequentialGroup()
+														.addComponent(btnSair, GroupLayout.PREFERRED_SIZE, 98,
+																GroupLayout.PREFERRED_SIZE)
+														.addGap(166)))))
+				.addPreferredGap(ComponentPlacement.RELATED).addComponent(jLabel4)));
 		jPanel1Layout.setVerticalGroup(jPanel1Layout.createParallelGroup(Alignment.LEADING).addGroup(jPanel1Layout
 				.createSequentialGroup()
 				.addGroup(jPanel1Layout.createParallelGroup(Alignment.LEADING)
-						.addGroup(jPanel1Layout.createSequentialGroup().addGap(19).addComponent(jLabel4,
+						.addGroup(jPanel1Layout.createSequentialGroup().addGap(58).addComponent(jLabel4,
 								GroupLayout.PREFERRED_SIZE, 92, GroupLayout.PREFERRED_SIZE))
-						.addGroup(jPanel1Layout.createSequentialGroup().addGap(49).addComponent(jLabelMenuMedicoTXT,
-								GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE)))
-				.addGap(37)
-				.addGroup(jPanel1Layout.createParallelGroup(Alignment.BASELINE)
-						.addComponent(jButtonAgenda, GroupLayout.PREFERRED_SIZE, 31, GroupLayout.PREFERRED_SIZE)
-						.addComponent(jButtonPesquisar, GroupLayout.PREFERRED_SIZE, 31, GroupLayout.PREFERRED_SIZE))
-				.addGap(41)
-				.addGroup(jPanel1Layout.createParallelGroup(Alignment.BASELINE)
-						.addComponent(jButtonSair, GroupLayout.PREFERRED_SIZE, 31, GroupLayout.PREFERRED_SIZE)
-						.addComponent(jButtonConfiguracoes, GroupLayout.PREFERRED_SIZE, 29, GroupLayout.PREFERRED_SIZE))
-				.addContainerGap(82, Short.MAX_VALUE)));
+						.addGroup(jPanel1Layout.createSequentialGroup()
+								.addGroup(jPanel1Layout.createParallelGroup(Alignment.LEADING)
+										.addGroup(jPanel1Layout.createSequentialGroup().addGap(31)
+												.addComponent(lblNewLabel).addGap(43)
+												.addGroup(jPanel1Layout.createParallelGroup(Alignment.BASELINE)
+														.addComponent(jButtonPesquisar, GroupLayout.PREFERRED_SIZE, 117,
+																GroupLayout.PREFERRED_SIZE)
+														.addComponent(jButtonAgenda, GroupLayout.PREFERRED_SIZE, 118,
+																GroupLayout.PREFERRED_SIZE)))
+										.addGroup(jPanel1Layout
+												.createSequentialGroup().addGap(44).addComponent(jLabelMenuMedicoTXT,
+														GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE)))
+								.addGap(45)
+								.addGroup(jPanel1Layout.createParallelGroup(Alignment.BASELINE)
+										.addComponent(jButtonConfiguracoes, GroupLayout.PREFERRED_SIZE, 98,
+												GroupLayout.PREFERRED_SIZE)
+										.addComponent(btnSair))))
+				.addContainerGap(74, Short.MAX_VALUE)));
 		jPanel1.setLayout(jPanel1Layout);
 
 		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-		getContentPane().setLayout(layout);
-		layout.setHorizontalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+		layout.setHorizontalGroup(layout.createParallelGroup(Alignment.LEADING)
 				.addGroup(layout.createSequentialGroup()
-						.addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE,
-								javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-						.addGap(0, 0, Short.MAX_VALUE)));
-		layout.setVerticalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addComponent(
-				jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
+						.addComponent(jPanel1, GroupLayout.PREFERRED_SIZE, 774, GroupLayout.PREFERRED_SIZE)
+						.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
+		layout.setVerticalGroup(layout.createParallelGroup(Alignment.LEADING)
+				.addGroup(layout.createSequentialGroup()
+						.addComponent(jPanel1, GroupLayout.PREFERRED_SIZE, 508, GroupLayout.PREFERRED_SIZE)
+						.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
+		getContentPane().setLayout(layout);
 
 		pack();
 		setLocationRelativeTo(null);
@@ -188,10 +188,11 @@ public class TelaMenuMedico extends javax.swing.JFrame {
 	// Variables declaration - do not modify//GEN-BEGIN:variables
 	private javax.swing.JButton jButtonPesquisar;
 	private javax.swing.JButton jButtonAgenda;
-	private javax.swing.JButton jButtonSair;
 	private javax.swing.JLabel jLabel1;
 	private javax.swing.JLabel jLabelMenuMedicoTXT;
 	private javax.swing.JLabel jLabel4;
 	private javax.swing.JPanel jPanel1;
 	private JButton jButtonConfiguracoes;
+	private JLabel lblNewLabel;
+	private JButton btnSair;
 }

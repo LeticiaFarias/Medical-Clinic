@@ -14,6 +14,9 @@ import javax.swing.JTextField;
 import javax.swing.JPasswordField;
 import javax.swing.JFormattedTextField;
 import javax.swing.JButton;
+import java.awt.Font;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
 
 public class TelaCadastroCliente extends javax.swing.JFrame {
 	private static final long serialVersionUID = 1L;
@@ -25,11 +28,8 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
 
 	private void initComponents() {
 
-		jPane = new javax.swing.JPanel();
-		jLabelCadastrarClienteTXT = new javax.swing.JLabel();
 		icon = new javax.swing.JLabel();
-		buttonRestaurar = new javax.swing.JButton();
-		buttonCadastrar = new javax.swing.JButton();
+	
 		txtNome = new javax.swing.JTextField();
 		txtCpf = new javax.swing.JTextField();
 		formatTxtDataNasc = new javax.swing.JFormattedTextField();
@@ -50,15 +50,15 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
 		setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 		setResizable(false);
 
+		jPane = new javax.swing.JPanel();
 		jPane.setBackground(new java.awt.Color(255, 255, 255));
 		jPane.setForeground(new java.awt.Color(255, 255, 255));
 
-		// icon.setIcon(new
-		// javax.swing.ImageIcon(getClass().getResource("/img/logosuperp.png")));
 
-		jLabelCadastrarClienteTXT.setFont(new java.awt.Font("Code Light", 0, 24));
+		jLabelCadastrarClienteTXT = new javax.swing.JLabel();
+		jLabelCadastrarClienteTXT.setFont(new Font("Dialog", Font.BOLD, 24));
 		jLabelCadastrarClienteTXT.setForeground(new java.awt.Color(0, 0, 51));
-		jLabelCadastrarClienteTXT.setText("Cadastrar cliente");
+		jLabelCadastrarClienteTXT.setText("CADASTRE SEUS CLIENTES!");
 
 		txtNome.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 		txtNome.setBorder(javax.swing.BorderFactory.createTitledBorder("NOME"));
@@ -100,14 +100,15 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
 		txtConfirmarSenha.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 		txtConfirmarSenha.setBorder(javax.swing.BorderFactory.createTitledBorder("CONFIRMAR SENHA"));
 
+		buttonRestaurar = new javax.swing.JButton("LIMPAR");
 		buttonRestaurar.setFont(new java.awt.Font("Code Light", 0, 11));
-		buttonRestaurar.setText("LIMPAR");
 		buttonRestaurar.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
 				buttonRestaurarActionPerformed(evt);
 			}
 		});
 
+		buttonCadastrar = new javax.swing.JButton();
 		buttonCadastrar.setFont(new java.awt.Font("Code Light", 0, 11));
 		buttonCadastrar.setText("CADASTRAR");
 		buttonCadastrar.addActionListener(new java.awt.event.ActionListener() {
@@ -127,6 +128,9 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
 				dispose();
 			}
 		});
+		
+		lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon(TelaCadastroCliente.class.getResource("/br/ufc/clinic/imagens/logo.png")));
 
 		javax.swing.GroupLayout gl_jPane = new javax.swing.GroupLayout(jPane);
 		gl_jPane.setHorizontalGroup(
@@ -136,89 +140,97 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
 					.addGroup(gl_jPane.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_jPane.createSequentialGroup()
 							.addGroup(gl_jPane.createParallelGroup(Alignment.TRAILING)
-								.addComponent(formatTxtDataNasc, GroupLayout.DEFAULT_SIZE, 394, Short.MAX_VALUE)
-								.addComponent(txtCpf, GroupLayout.DEFAULT_SIZE, 394, Short.MAX_VALUE)
-								.addComponent(txtNome, GroupLayout.DEFAULT_SIZE, 394, Short.MAX_VALUE)
+								.addGroup(Alignment.LEADING, gl_jPane.createSequentialGroup()
+									.addGroup(gl_jPane.createParallelGroup(Alignment.TRAILING)
+										.addComponent(formatTxtDataNasc, GroupLayout.DEFAULT_SIZE, 394, Short.MAX_VALUE)
+										.addComponent(txtCpf, GroupLayout.DEFAULT_SIZE, 394, Short.MAX_VALUE)
+										.addComponent(txtNome, GroupLayout.DEFAULT_SIZE, 394, Short.MAX_VALUE)
+										.addComponent(txtEmail, GroupLayout.DEFAULT_SIZE, 394, Short.MAX_VALUE)
+										.addGroup(gl_jPane.createSequentialGroup()
+											.addComponent(txtDDD, GroupLayout.PREFERRED_SIZE, 114, GroupLayout.PREFERRED_SIZE)
+											.addPreferredGap(ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+											.addComponent(txtTelefone, GroupLayout.PREFERRED_SIZE, 252, GroupLayout.PREFERRED_SIZE)))
+									.addGap(58)
+									.addGroup(gl_jPane.createParallelGroup(Alignment.LEADING)
+										.addComponent(txtConfirmarSenha, GroupLayout.DEFAULT_SIZE, 365, Short.MAX_VALUE)
+										.addComponent(txtSenha, 365, 365, Short.MAX_VALUE)
+										.addGroup(gl_jPane.createSequentialGroup()
+											.addComponent(txtNumero, GroupLayout.PREFERRED_SIZE, 83, GroupLayout.PREFERRED_SIZE)
+											.addGap(18)
+											.addComponent(txtRua, GroupLayout.PREFERRED_SIZE, 264, GroupLayout.PREFERRED_SIZE))
+										.addComponent(txtBairro, 365, 365, Short.MAX_VALUE)
+										.addGroup(gl_jPane.createSequentialGroup()
+											.addComponent(txtCEP, GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+											.addGap(18)
+											.addComponent(txtComplemento, GroupLayout.PREFERRED_SIZE, 227, GroupLayout.PREFERRED_SIZE))))
 								.addGroup(gl_jPane.createSequentialGroup()
+									.addComponent(buttonRestaurar, GroupLayout.PREFERRED_SIZE, 120, GroupLayout.PREFERRED_SIZE)
+									.addGap(18)
 									.addComponent(buttonVoltar, GroupLayout.PREFERRED_SIZE, 107, GroupLayout.PREFERRED_SIZE)
 									.addGap(18)
-									.addComponent(buttonCadastrar, GroupLayout.PREFERRED_SIZE, 120, GroupLayout.PREFERRED_SIZE))
-								.addComponent(txtEmail, GroupLayout.DEFAULT_SIZE, 394, Short.MAX_VALUE)
-								.addGroup(gl_jPane.createSequentialGroup()
-									.addComponent(txtDDD, GroupLayout.PREFERRED_SIZE, 114, GroupLayout.PREFERRED_SIZE)
-									.addPreferredGap(ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
-									.addComponent(txtTelefone, GroupLayout.PREFERRED_SIZE, 252, GroupLayout.PREFERRED_SIZE)))
-							.addGap(58)
-							.addGroup(gl_jPane.createParallelGroup(Alignment.LEADING)
-								.addComponent(txtConfirmarSenha, GroupLayout.DEFAULT_SIZE, 365, Short.MAX_VALUE)
-								.addComponent(txtSenha, 365, 365, Short.MAX_VALUE)
-								.addGroup(gl_jPane.createSequentialGroup()
-									.addComponent(txtNumero, GroupLayout.PREFERRED_SIZE, 83, GroupLayout.PREFERRED_SIZE)
-									.addGap(18)
-									.addComponent(txtRua, GroupLayout.PREFERRED_SIZE, 264, GroupLayout.PREFERRED_SIZE))
-								.addComponent(txtBairro, 365, 365, Short.MAX_VALUE)
-								.addGroup(gl_jPane.createSequentialGroup()
-									.addComponent(txtCEP, GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
-									.addGap(18)
-									.addComponent(txtComplemento, GroupLayout.PREFERRED_SIZE, 227, GroupLayout.PREFERRED_SIZE)))
+									.addComponent(buttonCadastrar, GroupLayout.PREFERRED_SIZE, 120, GroupLayout.PREFERRED_SIZE)))
 							.addGap(38))
 						.addGroup(gl_jPane.createSequentialGroup()
 							.addGroup(gl_jPane.createParallelGroup(Alignment.LEADING)
 								.addGroup(gl_jPane.createSequentialGroup()
 									.addGap(11)
-									.addComponent(icon)
-									.addGap(49)
-									.addComponent(jLabelCadastrarClienteTXT))
-								.addComponent(buttonRestaurar, GroupLayout.PREFERRED_SIZE, 120, GroupLayout.PREFERRED_SIZE))
-							.addContainerGap(587, Short.MAX_VALUE))))
+									.addComponent(icon))
+								.addGroup(gl_jPane.createSequentialGroup()
+									.addGap(93)
+									.addComponent(lblNewLabel)
+									.addGap(27)
+									.addComponent(jLabelCadastrarClienteTXT)))
+							.addContainerGap())))
 		);
 		gl_jPane.setVerticalGroup(
 			gl_jPane.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_jPane.createSequentialGroup()
-					.addGap(19)
-					.addGroup(gl_jPane.createParallelGroup(Alignment.TRAILING)
-						.addComponent(jLabelCadastrarClienteTXT, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE)
-						.addComponent(icon))
-					.addGap(63)
-					.addGroup(gl_jPane.createParallelGroup(Alignment.BASELINE)
-						.addComponent(txtNome, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
-						.addComponent(txtRua, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
-						.addComponent(txtNumero, GroupLayout.PREFERRED_SIZE, 33, GroupLayout.PREFERRED_SIZE))
-					.addGap(18)
-					.addGroup(gl_jPane.createParallelGroup(Alignment.LEADING)
-						.addComponent(txtCpf, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
-						.addComponent(txtBairro, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 					.addGroup(gl_jPane.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_jPane.createSequentialGroup()
+							.addGap(28)
+							.addComponent(lblNewLabel)
+							.addGap(16)
+							.addComponent(icon))
+						.addGroup(gl_jPane.createSequentialGroup()
+							.addGap(39)
+							.addComponent(jLabelCadastrarClienteTXT, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE)))
+					.addGap(53)
+					.addGroup(gl_jPane.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_jPane.createSequentialGroup()
+							.addGroup(gl_jPane.createParallelGroup(Alignment.BASELINE)
+								.addComponent(txtNome, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
+								.addComponent(txtRua, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
+								.addComponent(txtNumero, GroupLayout.PREFERRED_SIZE, 33, GroupLayout.PREFERRED_SIZE))
 							.addGap(18)
-							.addComponent(txtComplemento, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_jPane.createSequentialGroup()
-							.addGap(17)
 							.addGroup(gl_jPane.createParallelGroup(Alignment.LEADING)
-								.addComponent(txtCEP, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-								.addComponent(txtEmail, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE))))
-					.addGap(18)
-					.addGroup(gl_jPane.createParallelGroup(Alignment.LEADING)
+								.addComponent(txtCpf, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
+								.addComponent(txtBairro, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+							.addGroup(gl_jPane.createParallelGroup(Alignment.LEADING)
+								.addGroup(gl_jPane.createSequentialGroup()
+									.addGap(18)
+									.addComponent(txtComplemento, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+								.addGroup(gl_jPane.createSequentialGroup()
+									.addGap(17)
+									.addGroup(gl_jPane.createParallelGroup(Alignment.LEADING)
+										.addComponent(txtCEP, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+										.addComponent(txtEmail, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE))))
+							.addGap(18)
+							.addComponent(txtSenha, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 						.addGroup(gl_jPane.createSequentialGroup()
-							.addGap(46)
+							.addGap(158)
 							.addGroup(gl_jPane.createParallelGroup(Alignment.BASELINE)
 								.addComponent(txtTelefone, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
 								.addComponent(txtDDD, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE))
-							.addPreferredGap(ComponentPlacement.RELATED, 196, Short.MAX_VALUE)
+							.addGap(29)
 							.addGroup(gl_jPane.createParallelGroup(Alignment.BASELINE)
-								.addComponent(buttonCadastrar, GroupLayout.PREFERRED_SIZE, 29, GroupLayout.PREFERRED_SIZE)
-								.addComponent(buttonRestaurar, GroupLayout.PREFERRED_SIZE, 29, GroupLayout.PREFERRED_SIZE)
-								.addComponent(buttonVoltar, GroupLayout.PREFERRED_SIZE, 28, GroupLayout.PREFERRED_SIZE))
-							.addGap(28))
-						.addGroup(gl_jPane.createSequentialGroup()
-							.addComponent(txtSenha, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(txtConfirmarSenha, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-							.addContainerGap())))
-				.addGroup(gl_jPane.createSequentialGroup()
-					.addGap(280)
-					.addComponent(formatTxtDataNasc, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(300, Short.MAX_VALUE))
+								.addComponent(formatTxtDataNasc, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+								.addComponent(txtConfirmarSenha, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))))
+					.addPreferredGap(ComponentPlacement.RELATED, 119, Short.MAX_VALUE)
+					.addGroup(gl_jPane.createParallelGroup(Alignment.BASELINE)
+						.addComponent(buttonCadastrar, GroupLayout.PREFERRED_SIZE, 29, GroupLayout.PREFERRED_SIZE)
+						.addComponent(buttonVoltar, GroupLayout.PREFERRED_SIZE, 28, GroupLayout.PREFERRED_SIZE)
+						.addComponent(buttonRestaurar, GroupLayout.PREFERRED_SIZE, 29, GroupLayout.PREFERRED_SIZE))
+					.addGap(211))
 		);
 		jPane.setLayout(gl_jPane);
 
@@ -326,4 +338,5 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
 	private JPasswordField txtSenha;
 	private JPasswordField txtConfirmarSenha;
 	private JButton buttonVoltar;
+	private JLabel lblNewLabel;
 }
