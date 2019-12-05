@@ -7,6 +7,8 @@ import javax.swing.GroupLayout;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
+import javax.swing.JTabbedPane;
+import java.awt.Font;
 
 public class TelaMenuAdm extends javax.swing.JFrame {
 	private static final long serialVersionUID = 1L;
@@ -29,7 +31,7 @@ public class TelaMenuAdm extends javax.swing.JFrame {
 		lblNewLabel.setIcon(new ImageIcon(TelaMenuAdm.class.getResource("/br/ufc/clinic/imagens/logo.png")));
 
 		jLabelMenuAMtxt = new javax.swing.JLabel("BEM VINDO ADMINISTRADOR!");
-		jLabelMenuAMtxt.setFont(new java.awt.Font("Code Light", 0, 24));
+		jLabelMenuAMtxt.setFont(new Font("Dialog", Font.BOLD, 24));
 		jLabelMenuAMtxt.setForeground(new java.awt.Color(0, 0, 51));
 
 		jButtonPesquisar = new javax.swing.JButton("PESQUISAR USUÁRIOS");
@@ -133,10 +135,10 @@ public class TelaMenuAdm extends javax.swing.JFrame {
 	}
 
 	private void jButtonCadastrarAtendenteActionPerformed(java.awt.event.ActionEvent evt) {
+		dispose();
+		
 		TelaCadastroAtedente telaCadastroAtedente = new TelaCadastroAtedente();
 		telaCadastroAtedente.setVisible(true);
-
-		dispose();
 	}
 
 	public static void main(String args[]) {
