@@ -1,8 +1,14 @@
 # Medical Clinic
 
+<<<<<<< HEAD
 * [ ] Levantamento de requisitos
 * [ ] Elaboração dos diagramas
 * [ ] Implementação
+=======
+* [X] Levantamento de requisitos
+* [X] Elaboração dos diagramas
+* [X] Implementação
+>>>>>>> 7e420212ba47d38ae1aa414f4881c43c68ba5a76
 
 ## Como configurar o Hibernate em seu Projeto
 
@@ -17,3 +23,6 @@
 * **Passando informações do banco para o Hibernate**
 
 Dentro da pasta META-INF há um arquivo xml chamado persistence. Neste arquivo você deverá informar login e senha do pgAdmin, além do nome do seu banco de dados.
+
+
+[Documento de Requisitos V2 - APS.pdf](https://github.com/LeticiaFarias/Medical-Clinic/files/3932282/Documento.de.Requisitos.V2.-.APS.pdf)
