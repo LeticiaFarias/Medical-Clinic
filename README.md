@@ -1,7 +1,7 @@
 # Medical Clinic
 
-* [X] Levantamento de requisitos
-* [X] Elaboração dos diagramas
+* [ ] Levantamento de requisitos
+* [ ] Elaboração dos diagramas
 * [ ] Implementação
 
 ## Como configurar o Hibernate em seu Projeto
